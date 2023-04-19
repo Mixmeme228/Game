@@ -57,7 +57,7 @@ void Engine::update(float dtAsSeconds, bool& ant, float& immortal, int& hp, bool
 		}
 	}
 	for (int i = 0; i < m_Enemy.size() && m_Enemy.size() >= 1&&!m_Enemy.empty(); ++i) {
-		for (int j = 0; j < m_Enemy.size() && m_Enemy.size()&&!m_Enemy.empty(); >= 1; ++j)
+		for (int j = 0; j < m_Enemy.size() && m_Enemy.size()&&!m_Enemy.empty() >= 1; ++j)
 		{
 			if ((m_Enemy[j].m_Position.y - m_Enemy[i].m_Position.y <= 145 && m_Enemy[j].m_Position.y - m_Enemy[i].m_Position.y >= -145) && m_Enemy[j].m_Position.x == m_Enemy[i].m_Position.x && j != i)
 			{

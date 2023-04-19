@@ -15,7 +15,7 @@ void Engine::update(float dtAsSeconds, bool& ant, float& immortal, int& hp, bool
 		spawn[1] = dtAsSeconds;
 	}
 	m_MyCar.update(dtAsSeconds, m_Enemy.size());
-	for (int i = 0; i < m_Enemy.size() && m_Enemy.size() >= 1; ++i) {
+	for (int i = 0; i < m_Enemy.size() && m_Enemy.size() >= 1&&!m_Enemy.empty(); ++i) {
 		m_Enemy[i].update(dtAsSeconds);
 		m_Enemy[i].move();
 		if (m_Enemy[i].m_Position.y >= 720)
@@ -35,6 +35,7 @@ void Engine::update(float dtAsSeconds, bool& ant, float& immortal, int& hp, bool
 					m_MyCar.m_Sprite.setTexture(m_MyCar.m_Texture);
 					ant2 = false;
 					sound1();
+					addexplose(m_Enemy[i], dtAsSeconds);
 					m_Enemy.erase(m_Enemy.begin() + i);
 					if (hp == 0)
 					{
@@ -45,6 +46,7 @@ void Engine::update(float dtAsSeconds, bool& ant, float& immortal, int& hp, bool
 			}
 			else
 			{
+				addexplose(m_Enemy[i], dtAsSeconds);
 				m_Enemy.erase(m_Enemy.begin() + i);
 			}
 
@@ -54,8 +56,8 @@ void Engine::update(float dtAsSeconds, bool& ant, float& immortal, int& hp, bool
 			m_Enemy[i].stolke = false;
 		}
 	}
-	for (int i = 0; i < m_Enemy.size() && m_Enemy.size() >= 1; ++i) {
-		for (int j = 0; j < m_Enemy.size() && m_Enemy.size() >= 1; ++j)
+	for (int i = 0; i < m_Enemy.size() && m_Enemy.size() >= 1&&!m_Enemy.empty(); ++i) {
+		for (int j = 0; j < m_Enemy.size() && m_Enemy.size()&&!m_Enemy.empty(); >= 1; ++j)
 		{
 			if ((m_Enemy[j].m_Position.y - m_Enemy[i].m_Position.y <= 145 && m_Enemy[j].m_Position.y - m_Enemy[i].m_Position.y >= -145) && m_Enemy[j].m_Position.x == m_Enemy[i].m_Position.x && j != i)
 			{
@@ -74,13 +76,15 @@ void Engine::update(float dtAsSeconds, bool& ant, float& immortal, int& hp, bool
 			ant2 = true;
 		}
 	}
-	for (int i = 0; i < m_explose.size() && m_explose.size() >= 1; ++i)
+	for (int i = 0; i < m_explose.size() && m_explose.size() >= 1&&!m_explose.empty(); ++i)
 	{
 		m_explose[i].update(dtAsSeconds);
 		m_explose[i].move();
 		if (dtAsSeconds -float( m_explose[i].time) > 0.75)
 		{
-			m_explose.erase(m_explose.begin() + i);
+			if (!m_explose.empty()) {
+				m_explose.erase(m_explose.begin() + i);
+			}
 		}
 	}
 }

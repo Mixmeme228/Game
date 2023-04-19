@@ -74,7 +74,7 @@ private:
 	{
 		std::random_device dev;
 		std::mt19937 rng(dev());
-		std::uniform_int_distribution<std::mt19937::result_type> dist6(1, 4); 
+		std::uniform_int_distribution<std::mt19937::result_type> dist6(3, 6); 
 		for (int i = 0; i < dist6(rng); i++) {
 			int q;
 			srand(i+1);

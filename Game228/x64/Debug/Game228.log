@@ -1,0 +1,217 @@
+﻿  Draw.cpp
+C:\Users\qdcjj\source\repos\Game\Game228\Enemy.h(26,24): warning C4244: +=: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\explose.h(20,24): warning C4244: +=: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\engine.h(78,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\qdcjj\source\repos\Game\Game228\engine.h(118,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\qdcjj\source\repos\Game\Game228\engine.h(122,30): warning C4244: =: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\engine.h(123,26): warning C4244: =: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\Draw.cpp(31,25): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+  Enemy.cpp
+C:\Users\qdcjj\source\repos\Game\Game228\Enemy.h(26,24): warning C4244: +=: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\explose.h(20,24): warning C4244: +=: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\engine.h(78,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\qdcjj\source\repos\Game\Game228\engine.h(118,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\qdcjj\source\repos\Game\Game228\engine.h(122,30): warning C4244: =: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\engine.h(123,26): warning C4244: =: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+  Engine.cpp
+C:\Users\qdcjj\source\repos\Game\Game228\Enemy.h(26,24): warning C4244: +=: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\explose.h(20,24): warning C4244: +=: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\engine.h(78,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\qdcjj\source\repos\Game\Game228\engine.h(118,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\qdcjj\source\repos\Game\Game228\engine.h(122,30): warning C4244: =: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\engine.h(123,26): warning C4244: =: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\Engine.cpp(10,52): warning C4244: аргумент: преобразование "T" в "unsigned int", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\Engine.cpp(10,38): warning C4244: аргумент: преобразование "T" в "unsigned int", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\Engine.cpp(50,21): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+C:\Users\qdcjj\source\repos\Game\Game228\Engine.cpp(68,13): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+  explose.cpp
+C:\Users\qdcjj\source\repos\Game\Game228\explose.h(20,24): warning C4244: +=: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\Enemy.h(26,24): warning C4244: +=: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\engine.h(78,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\qdcjj\source\repos\Game\Game228\engine.h(118,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\qdcjj\source\repos\Game\Game228\engine.h(122,30): warning C4244: =: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\engine.h(123,26): warning C4244: =: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+  input.cpp
+C:\Users\qdcjj\source\repos\Game\Game228\Enemy.h(26,24): warning C4244: +=: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\explose.h(20,24): warning C4244: +=: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\engine.h(78,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\qdcjj\source\repos\Game\Game228\engine.h(118,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\qdcjj\source\repos\Game\Game228\engine.h(122,30): warning C4244: =: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\engine.h(123,26): warning C4244: =: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+  list.cpp
+  MyCar.cpp
+C:\Users\qdcjj\source\repos\Game\Game228\Enemy.h(26,24): warning C4244: +=: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\explose.h(20,24): warning C4244: +=: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\engine.h(78,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\qdcjj\source\repos\Game\Game228\engine.h(118,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\qdcjj\source\repos\Game\Game228\engine.h(122,30): warning C4244: =: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\engine.h(123,26): warning C4244: =: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\MyCar.cpp(12,33): warning C4244: =: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\MyCar.cpp(28,35): warning C4244: =: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\MyCar.cpp(43,35): warning C4244: =: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+  Source.cpp
+C:\Users\qdcjj\source\repos\Game\Game228\Enemy.h(26,24): warning C4244: +=: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\explose.h(20,24): warning C4244: +=: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\engine.h(78,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\qdcjj\source\repos\Game\Game228\engine.h(118,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\qdcjj\source\repos\Game\Game228\engine.h(122,30): warning C4244: =: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\engine.h(123,26): warning C4244: =: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+  Update.cpp
+C:\Users\qdcjj\source\repos\Game\Game228\Enemy.h(26,24): warning C4244: +=: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\explose.h(20,24): warning C4244: +=: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\engine.h(78,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\qdcjj\source\repos\Game\Game228\engine.h(118,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\qdcjj\source\repos\Game\Game228\engine.h(122,30): warning C4244: =: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\engine.h(123,26): warning C4244: =: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\Update.cpp(17,42): warning C4244: аргумент: преобразование "unsigned __int64" в "float", возможна потеря данных
+C:\Users\qdcjj\source\repos\Game\Game228\Update.cpp(63,28): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+  Создание кода...
+  Game228.vcxproj -> C:\Users\qdcjj\source\repos\Game\x64\Debug\Game228.exe

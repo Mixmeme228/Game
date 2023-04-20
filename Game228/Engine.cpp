@@ -37,7 +37,7 @@ void Engine::start()
 	spawn[1] = 0;
 	spawn[2] = 0;
 	spawn[3] = 0;
-	float immortal = 0;
+	float immortal = 0,dtMilliSeconds=0,gavno2=0;
 	Text text("Pause", font);
 	text.setCharacterSize(30);
 	text.setStyle(sf::Text::Bold);
@@ -51,6 +51,7 @@ void Engine::start()
 	{
 		Time dt = clock.getElapsedTime();
 		dtAsSeconds = dt.asSeconds() + gavno;
+		dtMilliSeconds = dt.asMilliseconds() + gavno2;
 		if (pause==true)
 		{
 			clock.restart();
@@ -64,6 +65,7 @@ void Engine::start()
 		{
 			if (pause == false) {
 				gavno = dtAsSeconds;
+				gavno2 = dtMilliSeconds;
 				pause = true;
 				sound_pause.play();
 				m_Window.draw(m_Sprite2);
@@ -81,7 +83,7 @@ void Engine::start()
 		}
 		if (pause == false) {
 			input(doroga, ant);
-			update(dtAsSeconds, stolk, immortal, hp, ant2);
+			update(dtAsSeconds, dtMilliSeconds, immortal, hp, ant2);
 			draw(doroga, stolk, pause, dtAsSeconds, hp, immortal);
 		}
 	}

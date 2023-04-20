@@ -2,7 +2,7 @@
 #include<vector>
 #include<ctime>
 using namespace sf;
-void Engine::update(float dtAsSeconds, bool& ant, float& immortal, int& hp, bool& ant2)
+void Engine::update(float dtAsSeconds, float dtMilliSeconds, float& immortal, int& hp, bool& ant2)
 {
 	if (dtAsSeconds - spawn[0] > 2 )
 	{
@@ -35,7 +35,7 @@ void Engine::update(float dtAsSeconds, bool& ant, float& immortal, int& hp, bool
 					m_MyCar.m_Sprite.setTexture(m_MyCar.m_Texture);
 					ant2 = false;
 					sound1();
-					addexplose(m_Enemy[i], dtAsSeconds);
+					addexplose(m_Enemy[i], dtMilliSeconds);
 					m_Enemy.erase(m_Enemy.begin() + i);
 					if (hp == 0)
 					{
@@ -46,7 +46,7 @@ void Engine::update(float dtAsSeconds, bool& ant, float& immortal, int& hp, bool
 			}
 			else
 			{
-				addexplose(m_Enemy[i], dtAsSeconds);
+				addexplose(m_Enemy[i], dtMilliSeconds);
 				m_Enemy.erase(m_Enemy.begin() + i);
 			}
 
@@ -62,7 +62,7 @@ void Engine::update(float dtAsSeconds, bool& ant, float& immortal, int& hp, bool
 			if ((m_Enemy[j].m_Position.y - m_Enemy[i].m_Position.y <= 145 && m_Enemy[j].m_Position.y - m_Enemy[i].m_Position.y >= -145) && m_Enemy[j].m_Position.x == m_Enemy[i].m_Position.x && j != i)
 			{
 				if (!m_Enemy.empty()) {
-					addexplose(m_Enemy[i],dtAsSeconds);
+					addexplose(m_Enemy[i], dtMilliSeconds);
 						m_Enemy.erase(m_Enemy.begin() + i);
 						m_Enemy.erase(m_Enemy.begin() + j - 1);
 				}
@@ -79,8 +79,8 @@ void Engine::update(float dtAsSeconds, bool& ant, float& immortal, int& hp, bool
 	for (int i = 0; i < m_explose.size() && m_explose.size() >= 1&&!m_explose.empty(); ++i)
 	{
 		m_explose[i].update(dtAsSeconds);
-		m_explose[i].move();
-		if (dtAsSeconds -float( m_explose[i].time) > 0.75)
+		m_explose[i].move(dtMilliSeconds);
+		if (dtAsSeconds - m_explose[i].time > 750)
 		{
 			if (!m_explose.empty()) {
 				m_explose.erase(m_explose.begin() + i);

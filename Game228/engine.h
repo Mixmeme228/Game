@@ -76,11 +76,11 @@ private:
 			}
 		}
 	}
-	void addexplose(Enemy Enemy1,int g)
+	void addexplose(Enemy Enemy1,float g)
 	{
 		explose1.time = g;
 		explose1.m_Position.y = Enemy1.m_Position.y;
-		explose1.m_Position.x = Enemy1.m_Position.x;
+		explose1.m_Position.x = Enemy1.m_Position.x-15;
 		explose1.m_Speed = 6;
 		m_explose.push_back(explose1);
 	}
@@ -146,6 +146,6 @@ private:
 		}
 		}
 	void input(int &doroga,bool&ant);
-	void update(float dtAsSeconds,bool &stolk,float &immortal,int& hp,bool& ant2);
+	void update(float dtAsSeconds, float dtMilliSeconds,float &immortal,int& hp,bool& ant2);
 	void draw(int doroga,bool &stolk,bool ant,int kok2,int hp,float immortal);
 };

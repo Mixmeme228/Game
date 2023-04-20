@@ -36,7 +36,7 @@ void Engine::draw(int doroga,bool &stolk,bool ant,int kok2,int hp,float immortal
 	text1.setFillColor(sf::Color::White);
 	text1.setPosition(300, 400);
 	m_Window.draw(text1);
-	s2 = std::to_string(kok2)+":"+ std::to_string(m_Enemy.size())+":"+std::to_string(hp)+":"+std::to_string(immortal);
+	s2 = std::to_string(kok2)+":"+ std::to_string(m_Enemy.size())+":"+std::to_string(ant)+":"+std::to_string(immortal);
 	Text text2(s2, font);
 	text2.setCharacterSize(30);
 	text2.setStyle(sf::Text::Bold);

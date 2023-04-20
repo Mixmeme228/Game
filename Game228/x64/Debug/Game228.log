@@ -1,4 +1,4 @@
-﻿  Draw.cpp
+﻿  Engine.cpp
 C:\Users\qdcjj\source\repos\Game\Game228\Enemy.h(26,24): warning C4244: +=: преобразование "double" в "T", возможна потеря данных
           with
           [
@@ -21,5 +21,16 @@ C:\Users\qdcjj\source\repos\Game\Game228\engine.h(131,26): warning C4244: =: п�
           [
               T=float
           ]
-C:\Users\qdcjj\source\repos\Game\Game228\Draw.cpp(28,27): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+C:\Users\qdcjj\source\repos\Game\Game228\Engine.cpp(10,52): warning C4244: аргумент: преобразование "T" в "unsigned int", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\Engine.cpp(10,38): warning C4244: аргумент: преобразование "T" в "unsigned int", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Game\Game228\Engine.cpp(52,32): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+C:\Users\qdcjj\source\repos\Game\Game228\Engine.cpp(80,11): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
   Game228.vcxproj -> C:\Users\qdcjj\source\repos\Game\x64\Debug\Game228.exe

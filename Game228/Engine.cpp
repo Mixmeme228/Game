@@ -16,7 +16,7 @@ Engine::Engine()
 }
 void Engine::start()
 {
-	bool ant = true, ant2=true;
+	bool ant = true, ant2=true,ant3=true;
 	Cursor cursor;
 	polnoegavno();
 	pause = false;
@@ -44,30 +44,41 @@ void Engine::start()
 	text.setFillColor(sf::Color::Black);
 	text.setPosition(500, 500);
 	sf::Event event;
-		Clock clock;
-		while (m_Window.isOpen())
+	Clock clock;
+	int dtAsSeconds=0;
+	while (m_Window.isOpen())
+	{
+		Time dt = clock.getElapsedTime();
+		dtAsSeconds = dt.asSeconds() + gavno;
+		if (pause==true)
+		{
+			clock.restart();
+		}
+		while (m_Window.pollEvent(event))
 			{
-				Time dt = clock.getElapsedTime();
-				int dtAsSeconds = dt.asSeconds() + gavno;
-				while (m_Window.pollEvent(event))
-				{
 					if (event.type == sf::Event::Closed)
 						m_Window.close();
-				}
-				if (Keyboard::isKeyPressed(sf::Keyboard::Escape))
-				{
-					pause = true;
-					gavno = dtAsSeconds;
-					clock.restart();
-				}
-				if (Keyboard::isKeyPressed(sf::Keyboard::Tab))
-				{
-					pause = false;
-				}
-				if (!pause) {
-					input(doroga, ant);
-					update(dtAsSeconds, stolk, immortal, hp, ant2);
-					draw(doroga, stolk, ant, dtAsSeconds, hp, immortal);
-				}
 			}
+		if (Keyboard::isKeyPressed(sf::Keyboard::Escape) && ant3)
+		{
+			if (pause == false) {
+				gavno = dtAsSeconds;
+				pause = true;
+			}
+			else {
+				pause = false;
+			}
+			ant3 = false;
+		}
+		else
+		{
+			if (!Keyboard::isKeyPressed(sf::Keyboard::Escape))
+				ant3 = true;
+		}
+		if (pause == false) {
+			input(doroga, ant);
+			update(dtAsSeconds, stolk, immortal, hp, ant2);
+			draw(doroga, stolk, pause, dtAsSeconds, hp, immortal);
+		}
+	}
 }

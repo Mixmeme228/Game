@@ -68,11 +68,13 @@ void Engine::start()
 				gavno2 = dtMilliSeconds;
 				pause = true;
 				sound_pause.play();
+				music.pause();
 				m_Window.draw(m_Sprite2);
 				m_Window.display();
 			}
 			else {
 				pause = false;
+				music.play();
 			}
 			ant3 = false;
 		}

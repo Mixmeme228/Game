@@ -17,6 +17,8 @@ public:
 	std::vector <Enemy> m_Enemy;
 	Sprite m_Sprite1;
 	Texture m_Texture1;
+	Sprite m_Sprite2;
+	Texture m_Texture2;
 	std::vector <explose> m_explose;
 private:
 	RenderWindow m_Window;
@@ -25,6 +27,8 @@ private:
 	MyCar m_MyCar;
 	Enemy Enemy1;
 	explose explose1;
+	SoundBuffer buffer;
+	Sound sound_pause;
 	std::vector <int> g;
 	float spawn[4];
 	void polnoegavno()
@@ -32,6 +36,14 @@ private:
 		m_Texture1.loadFromFile("4.png");
 		m_Sprite1.setTexture(m_Texture1);
 		m_Sprite1.setScale(0.1f, 0.1f);
+	}
+	void pause2()
+	{
+		m_Texture2.loadFromFile("button.png");
+		m_Sprite2.setTexture(m_Texture2);
+		m_Sprite2.setPosition(450, 300);
+		buffer.loadFromFile("032206ca9e2b5e8.ogg");
+		sound_pause.setBuffer(buffer);
 	}
 	void rasp()
 	{

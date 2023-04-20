@@ -41,8 +41,9 @@ void Engine::start()
 	Text text("Pause", font);
 	text.setCharacterSize(30);
 	text.setStyle(sf::Text::Bold);
-	text.setFillColor(sf::Color::Black);
+	text.setFillColor(sf::Color::White);
 	text.setPosition(500, 500);
+	pause2();
 	sf::Event event;
 	Clock clock;
 	int dtAsSeconds=0;
@@ -64,6 +65,9 @@ void Engine::start()
 			if (pause == false) {
 				gavno = dtAsSeconds;
 				pause = true;
+				sound_pause.play();
+				m_Window.draw(m_Sprite2);
+				m_Window.display();
 			}
 			else {
 				pause = false;

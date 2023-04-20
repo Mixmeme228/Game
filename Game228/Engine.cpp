@@ -18,6 +18,7 @@ void Engine::start()
 {
 	bool ant = true, ant2=true;
 	Cursor cursor;
+	polnoegavno();
 	pause = false;
 	Font font;
 	font.loadFromFile("ArialRegular.ttf");

@@ -15,6 +15,8 @@ public:
 	void start();
 	bool pause;
 	std::vector <Enemy> m_Enemy;
+	Sprite m_Sprite1;
+	Texture m_Texture1;
 	std::vector <explose> m_explose;
 private:
 	RenderWindow m_Window;
@@ -25,6 +27,12 @@ private:
 	explose explose1;
 	std::vector <int> g;
 	float spawn[4];
+	void polnoegavno()
+	{
+		m_Texture1.loadFromFile("4.png");
+		m_Sprite1.setTexture(m_Texture1);
+		m_Sprite1.setScale(0.1f, 0.1f);
+	}
 	void rasp()
 	{
 		for (int i = 0; i < 7; i++)
@@ -128,5 +136,4 @@ private:
 	void input(int &doroga,bool&ant);
 	void update(float dtAsSeconds,bool &stolk,float &immortal,int& hp,bool& ant2);
 	void draw(int doroga,bool &stolk,bool ant,int kok2,int hp,float immortal);
-
 };

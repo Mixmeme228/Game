@@ -1,3 +1,4 @@
+
 #include"engine.h"
 #include<string>
 #include<iostream>
@@ -21,15 +22,11 @@ void Engine::draw(int doroga,bool &stolk,bool ant,int kok2,int hp,float immortal
 	for (int i = 0; i < m_explose.size() && m_explose.size() >= 1; ++i) {
 		m_Window.draw(m_explose[i].getSprite());
 	}
-	for (int i = 0; i < 7; i++)
+	int y = 0;
+	for (int i = 0; i < hp; i++)
 	{
-		std::string s = std::to_string(g[i]);
-		Text text(s, font);
-		text.setCharacterSize(30);
-		text.setStyle(sf::Text::Bold);
-		text.setFillColor(sf::Color::White);
-		text.setPosition(0, 0 + i * 100);
-		m_Window.draw(text);
+		m_Sprite1.setPosition(70+50*i, 5);
+		m_Window.draw(m_Sprite1);
 	}
 	m_Window.draw(text);
 	std::string s2 = std::to_string(stolk);

@@ -5,14 +5,8 @@
 #include<SFML/Audio.hpp>
 void Engine::draw(int doroga,bool &stolk,bool ant,int kok2,int hp,float immortal)
 {
-	std::string s1=std::to_string(doroga);
 	Font font;
-	font.loadFromFile("ArialRegular.ttf");
-	Text text(s1, font);
-	text.setCharacterSize(30);
-	text.setStyle(sf::Text::Bold);
-	text.setFillColor(sf::Color::White);
-	text.setPosition(300, 300);
+	font.loadFromFile("EightBits.ttf");
 	m_Window.clear(Color::White);
 	m_Window.draw(m_BackgroundSprite);
 	m_Window.draw(m_MyCar.getSprite());
@@ -28,20 +22,31 @@ void Engine::draw(int doroga,bool &stolk,bool ant,int kok2,int hp,float immortal
 		m_Sprite1.setPosition(70+50*i, 5);
 		m_Window.draw(m_Sprite1);
 	}
-	m_Window.draw(text);
-	std::string s2 = std::to_string(stolk);
-	Text text1(s2, font);
-	text1.setCharacterSize(30);
-	text1.setStyle(sf::Text::Bold);
-	text1.setFillColor(sf::Color::White);
-	text1.setPosition(300, 400);
-	m_Window.draw(text1);
-	s2 = std::to_string(kok2)+":"+ std::to_string(m_Enemy.size())+":"+std::to_string(ant)+":"+std::to_string(immortal);
+	std::string s2;
+	if (kok2 < 10&&(kok2/60)==0) {
+		 s2 = "Time 0" + std::to_string(kok2 / 60) + ":0" + std::to_string(kok2);
+	}
+	else
+	{
+		if (kok2 >= 10 && (kok2 / 60) == 0) {
+			 s2 = "Time 0" + std::to_string(kok2 / 60) + ":" + std::to_string(kok2);
+		}
+	}
+	if (kok2 < 10 && (kok2 / 60) != 0)
+	{
+		 s2 = "Time " + std::to_string(kok2 / 60) + ":0" + std::to_string(kok2);
+	}
+	else
+	{
+		if (kok2 >= 10 && (kok2 / 60) == 0) {
+			 s2 = "Time " + std::to_string(kok2 / 60) + ":" + std::to_string(kok2);
+		}
+	}
 	Text text2(s2, font);
-	text2.setCharacterSize(30);
+	text2.setCharacterSize(75);
 	text2.setStyle(sf::Text::Bold);
 	text2.setFillColor(sf::Color::White);
-	text2.setPosition(400, 400);
+	text2.setPosition(75, 40);
 	m_Window.draw(text2);
 	m_Window.display();
 	stolk = false;

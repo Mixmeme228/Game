@@ -23,22 +23,13 @@ void Engine::draw(int doroga,bool &stolk,bool ant,int kok2,int hp,float immortal
 		m_Window.draw(m_Sprite1);
 	}
 	std::string s2;
-	if (kok2 < 10&&(kok2/60)==0) {
-		 s2 = "Time 0" + std::to_string(kok2 / 60) + ":0" + std::to_string(kok2);
-	}
-	else
-	{
-		if (kok2 >= 10 && (kok2 / 60) == 0) {
-			 s2 = "Time 0" + std::to_string(kok2 / 60) + ":" + std::to_string(kok2);
-		}
-	}
-	if (kok2 < 10 && (kok2 / 60) != 0)
+	if (kok2 < 10 )
 	{
 		 s2 = "Time " + std::to_string(kok2 / 60) + ":0" + std::to_string(kok2);
 	}
 	else
 	{
-		if (kok2 >= 10 && (kok2 / 60) == 0) {
+		if (kok2 >= 10 ) {
 			 s2 = "Time " + std::to_string(kok2 / 60) + ":" + std::to_string(kok2);
 		}
 	}

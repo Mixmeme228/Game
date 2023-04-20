@@ -32,7 +32,7 @@ void Engine::start()
 		g.push_back(false);
 	}
 	stolk = false;
-	int hp = 3,gavno=0;
+	int hp = 1,gavno=0;
 	spawn[0] = 0;
 	spawn[1] = 0;
 	spawn[2] = 0;

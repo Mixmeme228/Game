@@ -39,7 +39,7 @@ void Engine::update(float dtAsSeconds, float dtMilliSeconds, float& immortal, in
 					m_Enemy.erase(m_Enemy.begin() + i);
 					if (hp == 0)
 					{
-						m_Window.close();
+						game_over();
 					}
 					immortal = dtAsSeconds;
 				}

@@ -19,6 +19,10 @@ public:
 	Texture m_Texture1;
 	Sprite m_Sprite2;
 	Texture m_Texture2;
+	Sprite m_Sprite3;
+	Texture m_Texture3;
+	Sprite m_Sprite4;
+	Texture m_Texture4;
 	std::vector <explose> m_explose;
 private:
 	RenderWindow m_Window;
@@ -31,6 +35,33 @@ private:
 	Sound sound_pause;
 	std::vector <int> g;
 	float spawn[4];
+	void game_over()
+	{
+		m_Texture3.loadFromFile("game over.png");
+		m_Sprite3.setTexture(m_Texture3);
+		m_Sprite3.setTextureRect(IntRect(40, 75, 160, 40));
+		m_Texture4.loadFromFile("game over.png");
+		m_Sprite4.setTexture(m_Texture4);
+		m_Sprite4.setTextureRect(IntRect(40, 120, 160, 40));
+		int i=0, j=0;
+		while (i>=1&&j>=1)
+		{
+			m_Sprite3.setPosition(500, 500);
+			m_Sprite4.setPosition(600, 500);
+			i += 1;
+			j += 1;
+			m_Window.draw(m_Sprite3);
+			m_Window.draw(m_Sprite4);
+			m_Window.display();
+		}
+		while (true)
+		{
+			if (Keyboard::isKeyPressed(sf::Keyboard::Enter))
+			{
+				m_Window.close();
+			}
+		}
+	}
 	void polnoegavno()
 	{
 		m_Texture1.loadFromFile("4.png");

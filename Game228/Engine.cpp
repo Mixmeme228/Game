@@ -32,7 +32,7 @@ void Engine::start()
 		g.push_back(false);
 	}
 	stolk = false;
-	int hp = 1,gavno=0;
+	int hp = 3,gavno=0;
 	spawn[0] = 0;
 	spawn[1] = 0;
 	spawn[2] = 0;
@@ -68,13 +68,11 @@ void Engine::start()
 				gavno2 = dtMilliSeconds;
 				pause = true;
 				sound_pause.play();
-				music.pause();
 				m_Window.draw(m_Sprite2);
 				m_Window.display();
 			}
 			else {
 				pause = false;
-				music.play();
 			}
 			ant3 = false;
 		}

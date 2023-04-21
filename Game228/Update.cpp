@@ -34,12 +34,16 @@ void Engine::update(float dtAsSeconds, float dtMilliSeconds, float& immortal, in
 					m_MyCar.m_Texture.loadFromFile("31.png");
 					m_MyCar.m_Sprite.setTexture(m_MyCar.m_Texture);
 					ant2 = false;
-					sound1();
 					addexplose(m_Enemy[i], dtMilliSeconds);
 					m_Enemy.erase(m_Enemy.begin() + i);
 					if (hp == 0)
 					{
-						game_over(m_MyCar.m_Position.x, m_MyCar.m_Position.y);
+						m_explose.clear();
+						game_over(m_MyCar.m_Position.x, m_MyCar.m_Position.y,m_Enemy);
+					}
+					else
+					{
+						sound1();
 					}
 					immortal = dtAsSeconds;
 				}
@@ -80,7 +84,7 @@ void Engine::update(float dtAsSeconds, float dtMilliSeconds, float& immortal, in
 	{
 		m_explose[i].update(dtAsSeconds);
 		m_explose[i].move(dtMilliSeconds);
-		if (dtAsSeconds - m_explose[i].time > 750)
+		if (dtMilliSeconds - m_explose[i].time > 750)
 		{
 			if (!m_explose.empty()) {
 				m_explose.erase(m_explose.begin() + i);

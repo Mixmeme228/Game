@@ -7,6 +7,7 @@
 #include<ctime>
 #include<vector>
 #include <random>
+#include"string"
 using namespace sf;
 class Engine
 {
@@ -37,7 +38,7 @@ private:
 	Sound sound_pause;
 	std::vector <int> g;
 	float spawn[4];
-	void game_over(float x,float y)
+	void game_over(float x,float y,std::vector <Enemy> & m_Enemy)
 	{
 		 float time = 0;
 		m_Texture5.loadFromFile("explose.png");
@@ -52,26 +53,35 @@ private:
 		m_Sprite4.setTexture(m_Texture4);
 		m_Sprite4.setTextureRect(IntRect(40, 120, 160, 40));
 		Clock clock;
-		float dtMilliSeconds = 0;
+		int dtMilliSeconds = 0;
 		int i=0, j=1280;
 		sf::Event event;
+		Font font;
+		font.loadFromFile("EightBits.ttf");
+		std::string s2 = "Press Enter";
+		Text text2(s2, font);
+		text2.setCharacterSize(60);
+		text2.setStyle(sf::Text::Bold);
+		text2.setFillColor(sf::Color::Black);
+		text2.setPosition(550, 350);
 		while (m_Window.isOpen())
 		{
 			Time dt = clock.getElapsedTime();
+			Time dt2 = clock.getElapsedTime();
 			while (m_Window.pollEvent(event))
 			{
 				if (event.type == sf::Event::Closed)
 					m_Window.close();
 			}
 			dtMilliSeconds = dt.asMilliseconds();
-			dont_move(dtMilliSeconds,time,m_Sprite5);
-			if (i <= 400)
+			float dtSeconds = dt.asSeconds();
+			if (i <= 475)
 			{
-				i += 2;
+				i += 4;
 			}
-			if (j >= 600)
+			if (j >= 650)
 			{
-				j -= 2.5;
+				j -= 4.5;
 			}
 			m_Window.clear(Color::White);
 			m_Window.draw(m_BackgroundSprite);
@@ -80,77 +90,45 @@ private:
 			m_Window.draw(m_Sprite3);
 			m_Window.draw(m_Sprite4);
 			m_Window.draw(m_Sprite5);
-			m_Window.display();
-			if (Keyboard::isKeyPressed(sf::Keyboard::Enter))
-			{
-				m_Window.close();
-				break;
-			}
-		}
-	}
-	void dont_move(float dtMilliSeconds,float time,Sprite &m_Sprite)
-	{
-		if (dtMilliSeconds - time >= 50)
-		{
-			m_Sprite.setTextureRect(IntRect(IntRect(310, 0, 270, 290)));
-			if (dtMilliSeconds - time >= 100)
-			{
-				m_Sprite.setTextureRect(IntRect(IntRect(620, 0, 270, 290)));
-				if (dtMilliSeconds - time >= 150)
+			if ((j >= 650 && i <= 475)) {
+				dont_move(dtMilliSeconds, 0, m_Sprite5);
+				for (int i = 0; i < m_Enemy.size() && m_Enemy.size() >= 1; ++i) {
+					addexplose(m_Enemy[i], dtMilliSeconds);
+					m_Enemy.erase(m_Enemy.begin() + i);
+				}
+				for (int i = 0; i < m_explose.size() && m_explose.size() >= 1 && !m_explose.empty(); ++i)
 				{
-					m_Sprite.setTextureRect(IntRect(IntRect(930, 0, 270, 290)));
-					if (dtMilliSeconds - time >= 200)
+					m_explose[i].update(dtSeconds);
+					m_explose[i].dont_move(dtMilliSeconds);
+					if (dtMilliSeconds - m_explose[i].time > 750)
 					{
-						m_Sprite.setTextureRect(IntRect(IntRect(0, 320, 270, 290)));
-						if (dtMilliSeconds - time >= 250)
-						{
-							m_Sprite.setTextureRect(IntRect(IntRect(310, 320, 270, 290)));
-							if (dtMilliSeconds - time >= 300)
-							{
-								m_Sprite.setTextureRect(IntRect(IntRect(620, 320, 270, 290)));
-								if (dtMilliSeconds - time >= 350)
-								{
-									m_Sprite.setTextureRect(IntRect(IntRect(930, 320, 270, 290)));
-									if (dtMilliSeconds - time >= 400)
-									{
-										m_Sprite.setTextureRect(IntRect(IntRect(0, 640, 270, 290)));
-										if (dtMilliSeconds - time >= 450)
-										{
-											m_Sprite.setTextureRect(IntRect(IntRect(310, 640, 270, 290)));
-											if (dtMilliSeconds - time >= 500)
-											{
-												m_Sprite.setTextureRect(IntRect(IntRect(620, 640, 270, 290)));
-												if (dtMilliSeconds - time >= 550)
-												{
-													m_Sprite.setTextureRect(IntRect(IntRect(930, 640, 270, 290)));
-													if (dtMilliSeconds - time >= 600)
-													{
-														m_Sprite.setTextureRect(IntRect(IntRect(0, 960, 270, 290)));
-														if (dtMilliSeconds - time >= 650)
-														{
-															m_Sprite.setTextureRect(IntRect(IntRect(310, 960, 270, 290)));
-															if (dtMilliSeconds - time >= 700)
-															{
-																m_Sprite.setTextureRect(IntRect(IntRect(620, 960, 270, 290)));
-																if (dtMilliSeconds - time >= 750)
-																{
-																	m_Sprite.setTextureRect(IntRect(IntRect(930, 960, 270, 290)));
-																}
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
+						if (!m_explose.empty()) {
+							m_explose.erase(m_explose.begin() + i);
 						}
 					}
 				}
 			}
+			for (int i = 0; i < m_explose.size() && m_explose.size() >= 1; ++i) {
+				m_Window.draw(m_explose[i].getSprite());
+			}
+			if (!(j >= 650 && i <= 475)) {
+				if ( (dtMilliSeconds <= 1000))
+				{
+					m_Window.draw(text2);
+				}
+				if ((dtMilliSeconds >= 2000))
+				{
+					clock.restart();
+				}
+			}
+			m_Window.display();
+			if (Keyboard::isKeyPressed(sf::Keyboard::Enter))
+			{
+				m_Window.close();
+			}
 		}
 	}
+	void dont_move(float dtMilliSeconds, float time, Sprite &m_Sprite);
 	void polnoegavno()
 	{
 		m_Texture1.loadFromFile("4.png");

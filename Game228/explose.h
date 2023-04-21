@@ -3,11 +3,10 @@
 #include <random>
 using namespace sf;
 class explose
-{
-private:
+{	
+public:
 	Sprite m_Sprite;
 	Texture m_Texture;
-public:
 	explose();
 	float m_Speed;
 	int time;

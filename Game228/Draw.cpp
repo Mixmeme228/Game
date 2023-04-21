@@ -25,12 +25,12 @@ void Engine::draw(int doroga,bool &stolk,bool ant,int kok2,int hp,float immortal
 	std::string s2;
 	if (kok2 < 10 )
 	{
-		 s2 = "Time " + std::to_string(kok2 / 60) + ":0" + std::to_string(kok2);
+		 s2 = "Time " + std::to_string(kok2 / 60) + ":0" + std::to_string(kok2-(kok2/60)*60);
 	}
 	else
 	{
 		if (kok2 >= 10 ) {
-			 s2 = "Time " + std::to_string(kok2 / 60) + ":" + std::to_string(kok2);
+			 s2 = "Time " + std::to_string(kok2 / 60) + ":" + std::to_string(kok2- (kok2 / 60) * 60);
 		}
 	}
 	Text text2(s2, font);

@@ -39,7 +39,7 @@ void Engine::update(float dtAsSeconds, float dtMilliSeconds, float& immortal, in
 					m_Enemy.erase(m_Enemy.begin() + i);
 					if (hp == 0)
 					{
-						game_over();
+						game_over(m_MyCar.m_Position.x, m_MyCar.m_Position.y);
 					}
 					immortal = dtAsSeconds;
 				}

@@ -4,13 +4,13 @@ using namespace sf;
 class MyCar
 {
 private:
+	float m_Speed;
+	float m_Speed1;
+public:
 	bool m_LeftPressed;
 	bool m_RightPressed;
 	bool m_UpPressed;
 	bool m_DownPressed;
-	float m_Speed;
-	float m_Speed1;
-public:
 	Sprite m_Sprite;
 	Texture m_Texture;
 	MyCar();

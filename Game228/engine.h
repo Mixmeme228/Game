@@ -8,13 +8,21 @@
 #include<vector>
 #include <random>
 #include"string"
+#include<fstream>
 using namespace sf;
 class Engine
 {
 public:
+	Texture menuTexture1;
+	Texture menuTexture1_1;
+	Texture menuTexture2;
+	Texture menuTexture2_1;
+	Sprite menu2;
+	Sprite menu1;
 	Engine();
 	void start();
 	bool pause;
+	bool life;
 	std::vector <Enemy> m_Enemy;
 	Sprite m_Sprite1;
 	Texture m_Texture1;
@@ -28,6 +36,8 @@ public:
 	Texture m_Texture5;
 	std::vector <explose> m_explose;
 private:
+	Cursor cursor1;
+	Cursor hand;
 	RenderWindow m_Window;
 	Sprite m_BackgroundSprite;
 	Texture m_BackgroundTexture;
@@ -40,7 +50,7 @@ private:
 	float spawn[4];
 	void game_over(float x,float y,std::vector <Enemy> & m_Enemy)
 	{
-		 float time = 0;
+		float time = 0;
 		m_Texture5.loadFromFile("explose.png");
 		m_Sprite5.setTexture(m_Texture5);
 		m_Sprite5.setTextureRect(IntRect(0, 30, 270, 290));
@@ -64,14 +74,17 @@ private:
 		text2.setStyle(sf::Text::Bold);
 		text2.setFillColor(sf::Color::Black);
 		text2.setPosition(550, 350);
-		while (m_Window.isOpen())
+		while (life)
 		{
 			Time dt = clock.getElapsedTime();
 			Time dt2 = clock.getElapsedTime();
 			while (m_Window.pollEvent(event))
 			{
 				if (event.type == sf::Event::Closed)
+				{
 					m_Window.close();
+					life = false;
+				}
 			}
 			dtMilliSeconds = dt.asMilliseconds();
 			float dtSeconds = dt.asSeconds();
@@ -124,7 +137,14 @@ private:
 			m_Window.display();
 			if (Keyboard::isKeyPressed(sf::Keyboard::Enter))
 			{
-				m_Window.close();
+				m_MyCar.m_Texture.loadFromFile("3.png");
+				m_MyCar.m_Sprite.setTexture(m_MyCar.m_Texture);
+				m_MyCar.m_Sprite.setScale(0.2f, 0.2f);
+				m_MyCar.m_Position.x = 100;
+				m_MyCar.m_Position.y = 300;
+				menu2.setPosition(487.5, 390);
+				m_Window.clear();
+				life = false;
 			}
 		}
 	}

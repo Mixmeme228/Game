@@ -13,78 +13,165 @@ Engine::Engine()
 	m_Window.setFramerateLimit(60);
 	m_BackgroundTexture.loadFromFile("1.png");
 	m_BackgroundSprite.setTexture(m_BackgroundTexture);
+	menuTexture1.loadFromFile("start.png");
+	menuTexture1_1.loadFromFile("start2.png");
+	menu1.setTexture(menuTexture1);
+	menu1.setScale(0.25f, 0.25f);
+	menuTexture2.loadFromFile("exit.png");
+	menuTexture2_1.loadFromFile("exit2.png");
+	menu2.setTexture(menuTexture2);
+	menu1.setPosition(500, 300);
+	menu2.setScale(0.4f, 0.4f);
+	menu2.setPosition(487.5, 390);
+	hand.loadFromSystem(sf::Cursor::Hand);
+	if (cursor1.loadFromSystem(sf::Cursor::Arrow))
+	{
+		m_Window.setMouseCursor(cursor1);
+	}
 }
 void Engine::start()
 {
-	bool ant = true, ant2=true,ant3=true;
-	Cursor cursor;
-	polnoegavno();
-	pause = false;
-	Font font;
-	font.loadFromFile("ArialRegular.ttf");
-	music.openFromFile("icq.wav");
-	if (cursor.loadFromSystem(sf::Cursor::Arrow))
-		m_Window.setMouseCursor(cursor);
-	globallist.addNode();
-	int doroga=100;
-	for (int i=0;i<7;i++)
-	{
-		g.push_back(false);
-	}
-	stolk = false;
-	int hp = 3,gavno=0;
-	spawn[0] = 0;
-	spawn[1] = 0;
-	spawn[2] = 0;
-	spawn[3] = 0;
-	float immortal = 0,dtMilliSeconds=0,gavno2=0;
-	Text text("Pause", font);
-	text.setCharacterSize(30);
-	text.setStyle(sf::Text::Bold);
-	text.setFillColor(sf::Color::White);
-	text.setPosition(500, 500);
-	pause2();
-	sf::Event event;
-	Clock clock;
-	int dtAsSeconds=0;
-	while (m_Window.isOpen())
-	{
-		Time dt = clock.getElapsedTime();
-		dtAsSeconds = dt.asSeconds() + gavno;
-		dtMilliSeconds = dt.asMilliseconds() + gavno2;
-		if (pause==true)
+	int menuNum = 0;
+	while (m_Window.isOpen()) {
+		sf::Event event1;
+		while (m_Window.pollEvent(event1))
 		{
-			clock.restart();
-		}
-		while (m_Window.pollEvent(event))
+			if (event1.type == sf::Event::Closed)
 			{
-					if (event.type == sf::Event::Closed)
-						m_Window.close();
+				m_Window.close();
 			}
-		if (Keyboard::isKeyPressed(sf::Keyboard::Escape) && ant3)
-		{
-			if (pause == false) {
-				gavno = dtAsSeconds;
-				gavno2 = dtMilliSeconds;
-				pause = true;
-				sound_pause.play();
-				m_Window.draw(m_Sprite2);
-				m_Window.display();
-			}
-			else {
-				pause = false;
-			}
-			ant3 = false;
+		}
+		if (IntRect(505, 300, 160, 75).contains(Mouse::getPosition((m_Window)))) {
+			menu1.setTexture(menuTexture1_1); menuNum = 1; m_Window.setMouseCursor(hand);
 		}
 		else
 		{
-			if (!Keyboard::isKeyPressed(sf::Keyboard::Escape))
-				ant3 = true;
+			if (!IntRect(512.5, 400, 150, 58).contains(Mouse::getPosition((m_Window))))
+			{
+				m_Window.setMouseCursor(cursor1);
+				menu1.setTexture(menuTexture1);
+				menuNum = 0;
+			}
 		}
-		if (pause == false) {
-			input(doroga, ant);
-			update(dtAsSeconds, dtMilliSeconds, immortal, hp, ant2);
-			draw(doroga, stolk, pause, dtAsSeconds, hp, immortal);
+		if (IntRect(512.5, 400, 150, 58).contains(Mouse::getPosition((m_Window)))) {
+			menu2.setTexture(menuTexture2_1); menuNum = 2; m_Window.setMouseCursor(hand);
 		}
+		else
+		{
+			if (!IntRect(505, 300, 160, 75).contains(Mouse::getPosition((m_Window)))) {
+				m_Window.setMouseCursor(cursor1);
+
+				menu2.setTexture(menuTexture2);
+				menuNum = 0;
+			}
+		}
+		if (Mouse::isButtonPressed(Mouse::Left))
+		{
+			switch (menuNum)
+			{
+			case 1:
+				{
+					m_Window.setMouseCursor(cursor1);
+					bool ant = true, ant2 = true, ant3 = true;
+					polnoegavno();
+					pause = false;
+					Font font;
+					font.loadFromFile("ArialRegular.ttf");
+					music.openFromFile("icq.wav");
+					globallist.addNode();
+					int doroga = 100;
+					for (int i = 0; i < 7; i++)
+					{
+						g.push_back(false);
+					}
+					stolk = false;
+					int hp = 3, gavno = 0;
+					spawn[0] = 0;
+					spawn[1] = 0;
+					spawn[2] = 0;
+					spawn[3] = 0;
+					float immortal = 0, dtMilliSeconds = 0, gavno2 = 0;
+					Text text("Pause", font);
+					text.setCharacterSize(30);
+					text.setStyle(sf::Text::Bold);
+					text.setFillColor(sf::Color::White);
+					text.setPosition(500, 500);
+					pause2();
+					life = true;
+					sf::Event event;
+					Clock clock;
+					int dtAsSeconds = 0;
+					while (life)
+					{
+						Time dt = clock.getElapsedTime();
+						dtAsSeconds = dt.asSeconds() + gavno;
+						dtMilliSeconds = dt.asMilliseconds() + gavno2;
+						if (pause == true)
+						{
+							if (IntRect(550, 470, 150, 58).contains(Mouse::getPosition((m_Window)))) {
+								menu2.setTexture(menuTexture2_1); menuNum = 1; m_Window.setMouseCursor(hand);
+							}
+							else {
+								m_Window.setMouseCursor(cursor1);
+								menu2.setTexture(menuTexture2);
+								menuNum = 0;
+							}
+							if (Mouse::isButtonPressed(Mouse::Left))
+							{
+								if (menuNum == 1) {
+									life = false;
+									menu2.setPosition(487.5, 390);
+								}
+							}
+							m_Window.draw(menu2);
+							m_Window.draw(m_Sprite2);
+							m_Window.display();
+							clock.restart();
+						}
+						while (m_Window.pollEvent(event))
+						{
+							if (event.type == sf::Event::Closed)
+							{
+								m_Window.close();
+								life = false;
+							}
+						}
+						if (Keyboard::isKeyPressed(sf::Keyboard::Escape) && ant3)
+						{
+							if (pause == false) {
+								gavno = dtAsSeconds;
+								gavno2 = dtMilliSeconds;
+								pause = true;
+								sound_pause.play();
+								menu2.setPosition(525, 460);
+							}
+							else {
+								pause = false;
+							}
+							ant3 = false;
+						}
+						else
+						{
+							if (!Keyboard::isKeyPressed(sf::Keyboard::Escape))
+								ant3 = true;
+						}
+						if (pause == false) {
+							input(doroga, ant);
+							update(dtAsSeconds, dtMilliSeconds, immortal, hp, ant2);
+							if (life)
+								draw(doroga, stolk, pause, dtAsSeconds, hp, immortal);
+						}
+					}
+				}
+				break;
+			case 2:
+				m_Window.close();
+				break;
+			}
+		}
+		m_Window.draw(m_BackgroundSprite);
+		m_Window.draw(menu1);
+		m_Window.draw(menu2);
+		m_Window.display();
 	}
 }

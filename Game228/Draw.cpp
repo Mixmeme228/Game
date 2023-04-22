@@ -16,6 +16,9 @@ void Engine::draw(int doroga,bool &stolk,bool ant,int kok2,int hp,float immortal
 	for (int i = 0; i < m_explose.size() && m_explose.size() >= 1; ++i) {
 		m_Window.draw(m_explose[i].getSprite());
 	}
+	for (int i = 0; i < m_Coin.size() && m_Coin.size() >= 1; ++i) {
+		m_Window.draw(m_Coin[i].getSprite());
+	}
 	int y = 0;
 	for (int i = 0; i < hp; i++)
 	{
@@ -33,12 +36,19 @@ void Engine::draw(int doroga,bool &stolk,bool ant,int kok2,int hp,float immortal
 			 s2 = "Time " + std::to_string(kok2 / 60) + ":" + std::to_string(kok2- (kok2 / 60) * 60);
 		}
 	}
+	std::string s3;
+	s3 = "Score: " + std::to_string(Score);
+	Text text3(s3, font);
+	text3.setCharacterSize(75);
+	text3.setStyle(sf::Text::Bold);
+	text3.setFillColor(sf::Color::White);
+	text3.setPosition(75, 90);
+	m_Window.draw(text3);
 	Text text2(s2, font);
 	text2.setCharacterSize(75);
 	text2.setStyle(sf::Text::Bold);
 	text2.setFillColor(sf::Color::White);
 	text2.setPosition(75, 40);
 	m_Window.draw(text2);
-	m_Window.display();
 	stolk = false;
 }

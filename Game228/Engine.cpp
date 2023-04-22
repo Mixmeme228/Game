@@ -23,6 +23,8 @@ Engine::Engine()
 	menu1.setPosition(500, 300);
 	menu2.setScale(0.4f, 0.4f);
 	menu2.setPosition(487.5, 390);
+	Logo_Texture.loadFromFile("logo.png");
+	Logo_Sprite.setTexture(Logo_Texture);
 	hand.loadFromSystem(sf::Cursor::Hand);
 	if (cursor1.loadFromSystem(sf::Cursor::Arrow))
 	{
@@ -71,6 +73,8 @@ void Engine::start()
 			{
 			case 1:
 				{
+					Score = 0;
+					bool Score_shet = 1;
 					m_Window.setMouseCursor(cursor1);
 					bool ant = true, ant2 = true, ant3 = true;
 					polnoegavno();
@@ -120,9 +124,17 @@ void Engine::start()
 							{
 								if (menuNum == 1) {
 									life = false;
+									m_Enemy.clear();
+									m_MyCar.m_Texture.loadFromFile("3.png");
+									m_MyCar.m_Sprite.setTexture(m_MyCar.m_Texture);
+									m_explose.clear();
+									immortal = 0;
+									m_MyCar.m_Position.x = 100;
+									m_MyCar.m_Position.y = 300;
 									menu2.setPosition(487.5, 390);
 								}
 							}
+							draw(doroga, stolk, pause, dtAsSeconds, hp, immortal);
 							m_Window.draw(menu2);
 							m_Window.draw(m_Sprite2);
 							m_Window.display();
@@ -159,7 +171,10 @@ void Engine::start()
 							input(doroga, ant);
 							update(dtAsSeconds, dtMilliSeconds, immortal, hp, ant2);
 							if (life)
+							{
 								draw(doroga, stolk, pause, dtAsSeconds, hp, immortal);
+								m_Window.display();
+							}
 						}
 					}
 				}

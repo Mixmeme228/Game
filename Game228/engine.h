@@ -4,6 +4,7 @@
 #include"MyCar.h"
 #include"Enemy.h"
 #include"explose.h"
+#include"Coin.h"
 #include<ctime>
 #include<vector>
 #include <random>
@@ -13,6 +14,8 @@ using namespace sf;
 class Engine
 {
 public:
+	Texture Logo_Texture;
+	Sprite Logo_Sprite;
 	Texture menuTexture1;
 	Texture menuTexture1_1;
 	Texture menuTexture2;
@@ -24,6 +27,7 @@ public:
 	bool pause;
 	bool life;
 	std::vector <Enemy> m_Enemy;
+	std::vector <Coin> m_Coin;
 	Sprite m_Sprite1;
 	Texture m_Texture1;
 	Sprite m_Sprite2;
@@ -42,6 +46,9 @@ private:
 	Sprite m_BackgroundSprite;
 	Texture m_BackgroundTexture;
 	MyCar m_MyCar;
+	Coin Coin1;
+	long Score;
+	bool Score_shet;
 	Enemy Enemy1;
 	explose explose1;
 	SoundBuffer buffer;
@@ -143,6 +150,7 @@ private:
 				m_MyCar.m_Position.x = 100;
 				m_MyCar.m_Position.y = 300;
 				menu2.setPosition(487.5, 390);
+				m_Coin.clear();
 				m_Window.clear();
 				life = false;
 			}
@@ -263,6 +271,61 @@ private:
 			m_Enemy.push_back(Enemy1);
 		}
 		}
+	void addCoin()
+	{
+		std::random_device dev;
+		std::mt19937 rng(dev());
+		std::uniform_int_distribution<std::mt19937::result_type> dist6(1, 4);
+		for (int i = 0; i < dist6(rng); i++) {
+			int q;
+			srand(i + 1);
+			int k = 1;
+			std::uniform_int_distribution<std::mt19937::result_type> m(0, 6);
+			std::uniform_int_distribution<std::mt19937::result_type> m1(0, 6);
+			if (g[m(rng)] <= g[m1(rng)] && m(rng) != m1(rng))
+			{
+				k = m(rng) + 1;
+			}
+			else {
+				k = m1(rng) + 1;
+			}
+			switch (k)
+			{
+			case 1:
+				q = 100;
+				break;
+			case 2:
+				q = 250;
+				break;
+			case 3:
+				q = 400;
+				break;
+			case 4:
+				q = 550;
+				break;
+			case 5:
+				q = 700;
+				break;
+			case 6:
+				q = 850;
+				break;
+			case 7:
+				q = 1000;
+				break;
+			}
+			srand(0);
+			std::uniform_int_distribution<std::mt19937::result_type> m2(0, 100);
+			int value = m2(rng);
+			for (int i = 0; i < dist6(rng); ++i)
+			{
+				value = (value * 73129 + 95121) % 1000;
+			}
+			Coin1.m_Position.y = -200 - value;
+			Coin1.m_Position.x = q+30;
+			Coin1.m_Speed = 6;
+			m_Coin.push_back(Coin1);
+		}
+	}
 	void input(int &doroga,bool&ant);
 	void update(float dtAsSeconds, float dtMilliSeconds,float &immortal,int& hp,bool& ant2);
 	void draw(int doroga,bool &stolk,bool ant,int kok2,int hp,float immortal);

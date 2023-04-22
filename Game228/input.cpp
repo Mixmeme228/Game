@@ -42,10 +42,10 @@ void Engine::input(int &doroga,bool &ant)
 	}
 	if (Keyboard::isKeyPressed(sf::Keyboard::Space) && ant)
 	{
-		if (Score - 1000 >= 0)
+		if (Score - 500 >= 0)
 		{
 			addBullet();
-			Score -= 1000;
+			Score -= 500;
 			ant = false;
 		}
 	}

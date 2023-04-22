@@ -4,12 +4,12 @@
 using namespace sf;
 void Engine::update(float dtAsSeconds, float dtMilliSeconds, float& immortal, int& hp, bool& ant2)
 {
-	if (long(dtAsSeconds) % 10 == 0&& long(dtAsSeconds)!=0&&Score_shet)
+	if (long(dtAsSeconds) % 5 == 0&& long(dtAsSeconds)!=0&&Score_shet)
 	{
 		Score += 50;
 		Score_shet = false;
 	}
-	if (long(dtAsSeconds) % 10 == 1 && long(dtAsSeconds) != 0 && !Score_shet)
+	if (long(dtAsSeconds) % 5 == 1 && long(dtAsSeconds) != 0 && !Score_shet)
 	{
 		Score_shet = true;
 	}
@@ -125,6 +125,18 @@ void Engine::update(float dtAsSeconds, float dtMilliSeconds, float& immortal, in
 			if ((m_Coin[j].m_Position.y - m_Enemy[i].m_Position.y <= 130 && m_Coin[j].m_Position.y - m_Enemy[i].m_Position.y >= -130) && m_Coin[j].m_Position.x-30 == m_Enemy[i].m_Position.x )
 			{
 				m_Coin.erase(m_Coin.begin() + j);
+			}
+		}
+	}
+	for (int i = 0; i < m_Enemy.size() && m_Enemy.size() >= 1 && !m_Enemy.empty(); ++i)
+	{
+		for (int j = 0; j < m_Bullet.size() && m_Bullet.size() >= 1 && !m_Bullet.empty(); ++j)
+		{
+			if ((m_Bullet[j].m_Position.y+40 - m_Enemy[i].m_Position.y <= 130 && m_Bullet[j].m_Position.y + 40 - m_Enemy[i].m_Position.y >= -130) && m_Bullet[j].m_Position.x - 47 == m_Enemy[i].m_Position.x)
+			{
+				addexplose(m_Enemy[i], dtMilliSeconds);
+				m_Enemy.erase(m_Enemy.begin() + i);
+				m_Bullet.erase(m_Bullet.begin() + j);
 			}
 		}
 	}

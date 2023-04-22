@@ -40,15 +40,19 @@ void Engine::input(int &doroga,bool &ant)
 	{
 		m_Enemy.clear();
 	}
-	if (Keyboard::isKeyPressed(sf::Keyboard::Q) && ant)
+	if (Keyboard::isKeyPressed(sf::Keyboard::Space) && ant)
 	{
-		addEnemy();
-		ant = false;
+		if (Score - 1000 >= 0)
+		{
+			addBullet();
+			Score -= 1000;
+			ant = false;
+		}
 	}
 	else
 	{
-		if(!Keyboard::isKeyPressed(sf::Keyboard::Q))
-		ant = true;
+		if (!Keyboard::isKeyPressed(sf::Keyboard::Space))
+			ant = true;
 	}
 	switch (doroga)
 	{

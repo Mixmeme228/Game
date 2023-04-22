@@ -4,6 +4,7 @@
 #include"MyCar.h"
 #include"Enemy.h"
 #include"explose.h"
+#include"Bullet.h"
 #include"Coin.h"
 #include<ctime>
 #include<vector>
@@ -28,6 +29,7 @@ public:
 	bool life;
 	std::vector <Enemy> m_Enemy;
 	std::vector <Coin> m_Coin;
+	std::vector <Bullet> m_Bullet;
 	Sprite m_Sprite1;
 	Texture m_Texture1;
 	Sprite m_Sprite2;
@@ -49,12 +51,22 @@ private:
 	Coin Coin1;
 	long Score;
 	bool Score_shet;
+	bool shet;
 	Enemy Enemy1;
 	explose explose1;
+	Bullet bullet1;
 	SoundBuffer buffer;
 	Sound sound_pause;
 	std::vector <int> g;
 	float spawn[4];
+	void addBullet()
+	{
+		bullet1.m_Position = m_MyCar.m_Position;
+		bullet1.m_Position.x += 47;
+		bullet1.m_Position.y -= 40;
+		bullet1.m_Speed = 8.5;
+		m_Bullet.push_back(bullet1);
+	}
 	void game_over(float x,float y,std::vector <Enemy> & m_Enemy)
 	{
 		float time = 0;
@@ -151,6 +163,7 @@ private:
 				m_MyCar.m_Position.y = 300;
 				menu2.setPosition(487.5, 390);
 				m_Coin.clear();
+				m_Bullet.clear();
 				m_Window.clear();
 				life = false;
 			}

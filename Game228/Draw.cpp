@@ -13,6 +13,9 @@ void Engine::draw(int doroga,bool &stolk,bool ant,int kok2,int hp,float immortal
 	for (int i = 0; i < m_Enemy.size()  && m_Enemy.size() >= 1; ++i) {
 		m_Window.draw(m_Enemy[i].getSprite());
 	}
+	for (int i = 0; i < m_Bullet.size() && m_Bullet.size() >= 1; ++i) {
+		m_Window.draw(m_Bullet[i].getSprite());
+	}
 	for (int i = 0; i < m_explose.size() && m_explose.size() >= 1; ++i) {
 		m_Window.draw(m_explose[i].getSprite());
 	}

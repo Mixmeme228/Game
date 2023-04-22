@@ -34,6 +34,15 @@ void Engine::update(float dtAsSeconds, float dtMilliSeconds, float& immortal, in
 		spawn[3] = dtAsSeconds;
 	}
 	m_MyCar.update(dtAsSeconds, m_Enemy.size());
+	for (int i = 0; i < m_Bullet.size() && m_Bullet.size() >= 1; ++i)
+	{
+		m_Bullet[i].move();
+		m_Bullet[i].update(dtAsSeconds);
+		if (m_Bullet[i].m_Position.y <= -100)
+		{
+			m_Bullet.erase(m_Bullet.begin() + i);
+		}
+	}
 	for (int i = 0; i < m_Enemy.size() && m_Enemy.size() >= 1&&!m_Enemy.empty(); ++i) {
 		m_Enemy[i].update(dtAsSeconds);
 		m_Enemy[i].move();

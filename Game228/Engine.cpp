@@ -74,7 +74,8 @@ void Engine::start()
 			case 1:
 				{
 					Score = 0;
-					bool Score_shet = 1;
+					shet = 1;
+					Score_shet = 1;
 					m_Window.setMouseCursor(cursor1);
 					bool ant = true, ant2 = true, ant3 = true;
 					polnoegavno();
@@ -128,6 +129,8 @@ void Engine::start()
 									m_MyCar.m_Texture.loadFromFile("3.png");
 									m_MyCar.m_Sprite.setTexture(m_MyCar.m_Texture);
 									m_explose.clear();
+									m_Coin.clear();
+									m_Bullet.clear();
 									immortal = 0;
 									m_MyCar.m_Position.x = 100;
 									m_MyCar.m_Position.y = 300;

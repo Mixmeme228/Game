@@ -12,9 +12,9 @@ public:
 	float time;
 	Vector2f m_Position;
 	Sprite getSprite();
-	void move()
+	void move(float dt)
 	{
-			m_Position.y -= m_Speed;
+			m_Position.y -= 600* dt;
 	}
 	void update(float elapsedTime)
 	{

@@ -13,11 +13,11 @@ public:
 	float time;
 	Vector2f m_Position;
 	Sprite getSprite();
-	void move()
+	void move(float dt)
 	{
 		if (m_Position.y < 720)
 		{
-			m_Position.y += 0.6 + m_Speed;
+			m_Position.y += 400 *dt;
 		}
 	}
 	void update(float elapsedTime)

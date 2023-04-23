@@ -36,7 +36,7 @@ void Engine::update(float dtAsSeconds, float dtMilliSeconds, float& immortal, in
 	m_MyCar.update(dtAsSeconds, dtAsSeconds_1);
 	for (int i = 0; i < m_Bullet.size() && m_Bullet.size() >= 1; ++i)
 	{
-		m_Bullet[i].move();
+		m_Bullet[i].move(dtAsSeconds_1);
 		m_Bullet[i].update(dtAsSeconds);
 		if (m_Bullet[i].m_Position.y <= -100)
 		{
@@ -45,7 +45,7 @@ void Engine::update(float dtAsSeconds, float dtMilliSeconds, float& immortal, in
 	}
 	for (int i = 0; i < m_Enemy.size() && m_Enemy.size() >= 1&&!m_Enemy.empty(); ++i) {
 		m_Enemy[i].update(dtAsSeconds);
-		m_Enemy[i].move();
+		m_Enemy[i].move(dtAsSeconds_1);
 		if (m_Enemy[i].m_Position.y >= 720)
 		{
 			m_Enemy.erase(m_Enemy.begin() + i);
@@ -111,7 +111,7 @@ void Engine::update(float dtAsSeconds, float dtMilliSeconds, float& immortal, in
 	for (int j = 0; j < m_Coin.size() && m_Coin.size() >= 1 && !m_Coin.empty(); ++j)
 	{
 		m_Coin[j].update(dtAsSeconds);
-		m_Coin[j].move();
+		m_Coin[j].move(dtAsSeconds_1);
 		if ((m_Coin[j].m_Position.y - m_MyCar.m_Position.y <= 140 && m_Coin[j].m_Position.y - m_MyCar.m_Position.y >= -80) && m_Coin[j].m_Position.x-30 == m_MyCar.m_Position.x )
 		{
 			m_Coin.erase(m_Coin.begin() + j);
@@ -160,7 +160,7 @@ void Engine::update(float dtAsSeconds, float dtMilliSeconds, float& immortal, in
 	for (int i = 0; i < m_explose.size() && m_explose.size() >= 1&&!m_explose.empty(); ++i)
 	{
 		m_explose[i].update(dtAsSeconds);
-		m_explose[i].move(dtMilliSeconds);
+		m_explose[i].move(dtMilliSeconds,dtAsSeconds_1);
 		if (dtMilliSeconds - m_explose[i].time > 750)
 		{
 			if (!m_explose.empty()) {

@@ -10,7 +10,6 @@ Engine::Engine()
 	m_Window.create(VideoMode(resolution.x, resolution.y),
 		"MyGame",
 		Style::Default);
-	m_Window.setFramerateLimit(60);
 	m_BackgroundTexture.loadFromFile("1.png");
 	m_BackgroundSprite.setTexture(m_BackgroundTexture);
 	menuTexture1.loadFromFile("start.png");

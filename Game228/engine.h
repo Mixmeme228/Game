@@ -71,6 +71,7 @@ private:
 	void game_over(float x,float y,std::vector <Enemy> & m_Enemy)
 	{
 		float time = 0;
+		m_Window.setFramerateLimit(60);
 		m_Texture5.loadFromFile("explose.png");
 		m_Sprite5.setTexture(m_Texture5);
 		m_Sprite5.setTextureRect(IntRect(0, 30, 270, 290));
@@ -166,6 +167,7 @@ private:
 				m_Coin.clear();
 				m_Bullet.clear();
 				m_Window.clear();
+				m_Window.setFramerateLimit(0);
 				life = false;
 			}
 		}

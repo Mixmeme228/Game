@@ -16,14 +16,14 @@ public:
 	int time;
 	Vector2f m_Position;
 	Sprite getSprite();
-	void move()
+	void move(float dt)
 	{
 		std::random_device dev;
 		std::mt19937 rng(dev());
-		std::uniform_int_distribution<std::mt19937::result_type> dist6(0, 1001);
+		std::uniform_int_distribution<std::mt19937::result_type> dist6(0, 4001);
 		if (m_Position.y < 720)
 		{
-			m_Position.y += 0.6 + m_Speed;
+			m_Position.y += 400*dt;
 		}
 		if (dist6(rng) == 1000)
 		{
@@ -32,7 +32,7 @@ public:
 				m_Position.x -= 150;
 			}
 		}
-		if (dist6(rng) == 50)
+		if (dist6(rng) == 2000)
 		{
 			if (m_Position.x != 1000)
 			{

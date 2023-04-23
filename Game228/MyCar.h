@@ -12,6 +12,7 @@ public:
 	bool m_UpPressed;
 	bool m_DownPressed;
 	Sprite m_Sprite;
+	float time;
 	Texture m_Texture;
 	MyCar();
 	Vector2f m_Position;

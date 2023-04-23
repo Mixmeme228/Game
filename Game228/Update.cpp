@@ -33,7 +33,7 @@ void Engine::update(float dtAsSeconds, float dtMilliSeconds, float& immortal, in
 		addCoin();
 		spawn[3] = dtAsSeconds;
 	}
-	m_MyCar.update(dtAsSeconds, m_Enemy.size());
+	m_MyCar.update(dtAsSeconds, dtAsSeconds_1);
 	for (int i = 0; i < m_Bullet.size() && m_Bullet.size() >= 1; ++i)
 	{
 		m_Bullet[i].move();
@@ -112,7 +112,7 @@ void Engine::update(float dtAsSeconds, float dtMilliSeconds, float& immortal, in
 	{
 		m_Coin[j].update(dtAsSeconds);
 		m_Coin[j].move();
-		if ((m_Coin[j].m_Position.y - m_MyCar.m_Position.y <= 80 && m_Coin[j].m_Position.y - m_MyCar.m_Position.y >= -80) && m_Coin[j].m_Position.x-30 == m_MyCar.m_Position.x )
+		if ((m_Coin[j].m_Position.y - m_MyCar.m_Position.y <= 140 && m_Coin[j].m_Position.y - m_MyCar.m_Position.y >= -80) && m_Coin[j].m_Position.x-30 == m_MyCar.m_Position.x )
 		{
 			m_Coin.erase(m_Coin.begin() + j);
 			Score += 100;

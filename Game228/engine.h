@@ -55,6 +55,7 @@ private:
 	Enemy Enemy1;
 	explose explose1;
 	Bullet bullet1;
+	float dtAsSeconds_1;
 	SoundBuffer buffer;
 	Sound sound_pause;
 	std::vector <int> g;

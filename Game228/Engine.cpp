@@ -104,10 +104,12 @@ void Engine::start()
 					pause2();
 					life = true;
 					sf::Event event;
-					Clock clock;
+					Clock clock,clock1;
 					int dtAsSeconds = 0;
 					while (life)
 					{
+						Time dt2 = clock1.restart();
+						dtAsSeconds_1 = dt2.asSeconds();
 						Time dt = clock.getElapsedTime();
 						dtAsSeconds = dt.asSeconds() + gavno;
 						dtMilliSeconds = dt.asMilliseconds() + gavno2;

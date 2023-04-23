@@ -76,15 +76,15 @@ void MyCar::stopDown()
 {
 	m_DownPressed = true;
 }
-void MyCar::update(float elapsedTime,float size)
+void MyCar::update(float elapsedTime,float dtAsSeconds_1)
 {
 	if (m_UpPressed&& m_Position.y<=568)
 	{
-		m_Position.y += m_Speed1;
+		m_Position.y += 500* dtAsSeconds_1;
 	}
 	if (m_DownPressed &&m_Position.y >= 0)
 	{
-		m_Position.y -= m_Speed1;
+		m_Position.y -= 500* dtAsSeconds_1;
 	}
 	m_Sprite.setPosition(m_Position);
 }

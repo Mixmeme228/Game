@@ -1,0 +1,5 @@
+﻿Bullet.obj : warning LNK4075: не учитывается "/EDITANDCONTINUE" из-за спецификации "/OPT:ICF"
+Source.obj : error LNK2038: обнаружено несоответствие для "_ITERATOR_DEBUG_LEVEL": значение "0" не соответствует значению "2" в Bullet.obj
+Source.obj : error LNK2038: обнаружено несоответствие для "RuntimeLibrary": значение "MD_DynamicRelease" не соответствует значению "MDd_DynamicDebug" в Bullet.obj
+LINK : warning LNK4098: библиотека по умолчанию "MSVCRT" конфликтует с использованием других библиотек; используйте /NODEFAULTLIB:library
+C:\Users\qdcjj\Desktop\Game\x64\Release\Game228.exe : fatal error LNK1319: обнаружено несоответствий: 2

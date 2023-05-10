@@ -53,6 +53,11 @@ private:
 	Clock clock2;
 	int gg,fps;
 	Music gosht;
+	Music Menu_music;
+	Music Menu_music1;
+	Music Menu_music3;
+	Music Menu_music2;
+	bool menu_music;
 	RenderWindow m_Window;
 	Sprite m_BackgroundSprite;
 	Texture m_BackgroundTexture;
@@ -60,7 +65,7 @@ private:
 	Coin Coin1;
 	long Score;
 	bool Score_shet;
-	bool shet;
+	bool shet, zast,sound_menu, sound_menu1;
 	Texture textur;
 	Enemy Enemy1;
 	explose explose1;
@@ -70,6 +75,14 @@ private:
 	std::string fpsss;
 	SoundBuffer buffer;
 	Sound sound_pause;
+	SoundBuffer buffer1;
+	Sound sound_focus;
+	SoundBuffer buffer2;
+	Sound sound_click;
+	SoundBuffer buffer3;
+	Sound sound_explose;
+	SoundBuffer buffer4;
+	Sound sound_coin;
 	std::vector <int> g;
 	float spawn[4];
 	void addBullet()
@@ -82,6 +95,11 @@ private:
 	}
 	void game_over(float x,float y,std::vector <Enemy> & m_Enemy)
 	{
+		
+		Menu_music3.play();
+		Menu_music.stop();
+		Menu_music1.stop();
+		Menu_music2.stop();
 		float time = 0;
 		m_Texture5.loadFromFile("explose.png");
 		m_Sprite5.setTexture(m_Texture5);
@@ -106,6 +124,12 @@ private:
 		text2.setStyle(sf::Text::Bold);
 		text2.setFillColor(sf::Color::Black);
 		text2.setPosition(550, 350);
+		std::string s3 = "Yes, he didn't die in the end.";
+		Text text3(s3, font);
+		text3.setCharacterSize(60);
+		text3.setStyle(sf::Text::Bold);
+		text3.setFillColor(sf::Color::Black);
+		text3.setPosition(375, 450);
 		while (life)
 		{
 			Time dt = clock.getElapsedTime();
@@ -157,6 +181,7 @@ private:
 				m_Window.draw(m_explose[i].getSprite());
 			}
 			if (!(j >= 650 && i <= 475)) {
+				m_Window.draw(text3);
 				if ( (dtMilliSeconds <= 1000))
 				{
 					m_Window.draw(text2);
@@ -181,8 +206,11 @@ private:
 				m_Window.clear();
 				m_Window.setFramerateLimit(0);
 				fpss = 0;
+				menu_music = true;
 				clock2.restart();
+				gohst1 = 0;
 				gg = 0;
+				Menu_music3.stop();
 				life = false;
 			}
 		}
@@ -245,7 +273,7 @@ private:
 	Music music;
 	void sound1()
 	{
-		music.play();
+		sound_explose.play(); 
 	}
 	void addEnemy()
 	{
@@ -307,6 +335,10 @@ private:
 			}
 		}
 		}
+	void sound2()
+	{
+		sound_coin.play();
+	}
 	void addCoin()
 	{
 		std::random_device dev;

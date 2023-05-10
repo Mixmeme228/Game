@@ -1,1 +1,61 @@
-﻿  Game228.vcxproj -> C:\Users\qdcjj\source\repos\Mixmeme228\Game\x64\Debug\Game228.exe
+﻿  Engine.cpp
+C:\Users\qdcjj\source\repos\Mixmeme228\Game\Game228\explose.h(19,24): warning C4244: +=: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Mixmeme228\Game\Game228\engine.h(129,10): warning C4244: -=: преобразование "double" в "int", возможна потеря данных
+C:\Users\qdcjj\source\repos\Mixmeme228\Game\Game228\engine.h(133,26): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+C:\Users\qdcjj\source\repos\Mixmeme228\Game\Game228\engine.h(134,26): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+C:\Users\qdcjj\source\repos\Mixmeme228\Game\Game228\engine.h(139,15): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+C:\Users\qdcjj\source\repos\Mixmeme228\Game\Game228\engine.h(141,29): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+C:\Users\qdcjj\source\repos\Mixmeme228\Game\Game228\engine.h(147,29): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+C:\Users\qdcjj\source\repos\Mixmeme228\Game\Game228\engine.h(255,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\qdcjj\source\repos\Mixmeme228\Game\Game228\engine.h(295,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\qdcjj\source\repos\Mixmeme228\Game\Game228\engine.h(299,30): warning C4244: =: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Mixmeme228\Game\Game228\engine.h(300,26): warning C4244: =: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Mixmeme228\Game\Game228\engine.h(315,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\qdcjj\source\repos\Mixmeme228\Game\Game228\engine.h(355,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\qdcjj\source\repos\Mixmeme228\Game\Game228\engine.h(359,30): warning C4244: =: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Mixmeme228\Game\Game228\engine.h(360,26): warning C4244: =: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Mixmeme228\Game\Game228\Engine.cpp(10,52): warning C4244: аргумент: преобразование "T" в "unsigned int", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Mixmeme228\Game\Game228\Engine.cpp(10,38): warning C4244: аргумент: преобразование "T" в "unsigned int", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+C:\Users\qdcjj\source\repos\Mixmeme228\Game\Game228\Engine.cpp(63,32): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+C:\Users\qdcjj\source\repos\Mixmeme228\Game\Game228\Engine.cpp(112,18): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=int
+          ]
+C:\Users\qdcjj\source\repos\Mixmeme228\Game\Game228\Engine.cpp(119,16): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=int
+          ]
+C:\Users\qdcjj\source\repos\Mixmeme228\Game\Game228\Engine.cpp(201,34): warning C4244: =: преобразование "sf::Int32" в "float", возможна потеря данных
+C:\Users\qdcjj\source\repos\Mixmeme228\Game\Game228\Engine.cpp(202,36): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+C:\Users\qdcjj\source\repos\Mixmeme228\Game\Game228\Engine.cpp(265,15): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+  Game228.vcxproj -> C:\Users\qdcjj\source\repos\Mixmeme228\Game\x64\Debug\Game228.exe

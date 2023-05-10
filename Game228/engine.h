@@ -36,6 +36,8 @@ public:
 	std::vector <Bullet> m_Bullet;
 	Sprite m_Sprite1;
 	Texture m_Texture1;
+	Sprite m_GohstCars;
+	Texture m_GohstCart;
 	Sprite m_Sprite2;
 	Texture m_Texture2;
 	Sprite m_Sprite3;
@@ -59,6 +61,7 @@ private:
 	long Score;
 	bool Score_shet;
 	bool shet;
+	Texture textur;
 	Enemy Enemy1;
 	explose explose1;
 	Bullet bullet1;
@@ -173,9 +176,11 @@ private:
 				m_MyCar.m_Position.y = 500;
 				menu2.setPosition(487.5, 390);
 				m_Coin.clear();
+				m_explose.clear();
 				m_Bullet.clear();
 				m_Window.clear();
 				m_Window.setFramerateLimit(0);
+				fpss = 0;
 				clock2.restart();
 				gg = 0;
 				life = false;
@@ -295,6 +300,11 @@ private:
 			Enemy1.m_Position.x = q;
 			Enemy1.m_Speed = 6;
 			m_Enemy.push_back(Enemy1);
+			std::uniform_int_distribution<std::mt19937::result_type> dist(1, 10);
+			if (dist(rng)>=9) {
+				m_Enemy.back().stoika = true;
+				m_Enemy.back().m_Sprite.setTexture(textur);
+			}
 		}
 		}
 	void addCoin()

@@ -11,11 +11,16 @@ Engine::Engine()
 		"Drive",
 		Style::Default);
 	m_BackgroundTexture.loadFromFile("1.png");
+	textur.loadFromFile("Enemy2.png");
 	m_BackgroundSprite.setTexture(m_BackgroundTexture);
 	menuTexture1.loadFromFile("start.png");
 	menuTexture1_1.loadFromFile("start2.png");
 	menu1.setTexture(menuTexture1);
 	menu1.setScale(0.25f, 0.25f);
+	m_GohstCart.loadFromFile("3.png");
+	m_GohstCars.setTexture(m_GohstCart);
+	m_GohstCars.setScale(0.5f, 0.5f);
+	m_GohstCars.setPosition(400, 200);
 	menuTexture2.loadFromFile("exit.png");
 	menuTexture2_1.loadFromFile("exit2.png");
 	menu2.setTexture(menuTexture2);
@@ -30,6 +35,10 @@ Engine::Engine()
 	m_chellt.loadFromFile("chell.png");
 	m_chells.setTexture(m_chellt);
 	m_chells.setScale(0.2f, 0.2f);
+	m_strelkat.loadFromFile("strelka.png");
+	m_strelkas.setTexture(m_strelkat);
+	m_strelkas.setScale(0.2f, 0.2f);
+	m_strelkas.setRotation(90);
 	if (cursor1.loadFromSystem(sf::Cursor::Arrow))
 	{
 		m_Window.setMouseCursor(cursor1);
@@ -55,11 +64,42 @@ void Engine::start()
 		if (gohst1 <= 5700)
 		{
 			m_chells.setPosition((gohst1 / 10)-300, 300);
+			m_strelkas.setPosition((gohst1 / 10) - 240, 175);
 			m_Window.draw(m_chells);
+			m_Window.draw(m_GohstCars);
 		}
-		if (gohst1>=5700)
+		if (gohst1>=5700 && gohst1<=7000)
+		{	
+			m_Window.draw(m_strelkas);
+			m_Window.draw(m_chells);
+			m_Window.draw(m_GohstCars);
+		}
+		if (gohst1 >= 7000 && gohst1 <= 9000)
+		{
+			m_chells.setPosition(((gohst1 - 1300) / 10) - 300, 300);
+			m_Window.draw(m_chells);
+			m_Window.draw(m_GohstCars);
+		}
+		if (gohst1 >= 9000&& gohst1 <= 13000)
 		{
 			m_Window.draw(m_chells);
+			m_Window.draw(m_GohstCars);
+		}
+		if (gohst1 >= 13000 && gohst1 <= 15000)
+		{
+			m_Window.draw(m_GohstCars);
+		}
+		if (gohst1 >= 15000&& gohst1<=16000)
+		{
+			m_GohstCars.setPosition(400, 200-(gohst1-15000));
+			m_Window.draw(m_GohstCars);
+		}
+		if (gohst1 >= 16000)
+		{
+			m_GohstCars.setScale(0.2f, 0.2f);
+			m_GohstCars.setPosition(550, 720 - (gohst1 - 16000));
+			m_Window.draw(m_BackgroundSprite);
+			m_Window.draw(m_GohstCars);
 		}
 		if (gohst1 >= 18000 || Keyboard::isKeyPressed(Keyboard::Enter)) {
 			gosht.stop();
@@ -83,7 +123,6 @@ void Engine::start()
 			{
 				if (!IntRect(505, 300, 160, 75).contains(Mouse::getPosition((m_Window)))) {
 					m_Window.setMouseCursor(cursor1);
-
 					menu2.setTexture(menuTexture2);
 					menuNum = 0;
 				}

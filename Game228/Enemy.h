@@ -13,6 +13,7 @@ public:
 	Enemy();
 	float m_Speed;
 	int line;
+	bool stoika;
 	int time;
 	Vector2f m_Position;
 	Sprite getSprite();

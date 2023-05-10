@@ -66,7 +66,8 @@ void Engine::update(float dtAsSeconds, float dtMilliSeconds, float& immortal, in
 					m_Enemy.erase(m_Enemy.begin() + i);
 					if (hp == 0)
 					{
-						m_explose.clear();
+						m_Window.setFramerateLimit(60);
+						m_explose.erase(m_explose.end()-1);
 						game_over(m_MyCar.m_Position.x, m_MyCar.m_Position.y,m_Enemy);
 					}
 					else
@@ -152,7 +153,7 @@ void Engine::update(float dtAsSeconds, float dtMilliSeconds, float& immortal, in
 	}
 	for (int i = 0; i < m_Coin.size() && m_Coin.size() >= 1 && !m_Coin.empty(); ++i)
 	{
-		if (m_Coin[i].m_Position.y >= 730)
+		if (m_Coin[i].m_Position.y >= 800)
 		{
 			m_Coin.erase(m_Coin.begin() + i);
 		}

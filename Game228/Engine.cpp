@@ -8,7 +8,7 @@ Engine::Engine()
 	resolution.x = 1280;
 	resolution.y = 720;
 	m_Window.create(VideoMode(resolution.x, resolution.y),
-		"MyGame",
+		"Drive",
 		Style::Default);
 	m_BackgroundTexture.loadFromFile("1.png");
 	m_BackgroundSprite.setTexture(m_BackgroundTexture);
@@ -24,15 +24,23 @@ Engine::Engine()
 	menu2.setPosition(487.5, 390);
 	Logo_Texture.loadFromFile("logo.png");
 	Logo_Sprite.setTexture(Logo_Texture);
+	Logo_Sprite.setScale(0.2f, 0.2f);
+	Logo_Sprite.setPosition(400, 50);
 	hand.loadFromSystem(sf::Cursor::Hand);
+	m_chellt.loadFromFile("chell.png");
+	m_chells.setTexture(m_chellt);
+	m_chells.setScale(0.2f, 0.2f);
 	if (cursor1.loadFromSystem(sf::Cursor::Arrow))
 	{
 		m_Window.setMouseCursor(cursor1);
 	}
+	gosht.openFromFile("gosht.ogg");
+	gg = 0;
 }
 void Engine::start()
-{
+{ 
 	int menuNum = 0;
+	gosht.play();
 	while (m_Window.isOpen()) {
 		sf::Event event1;
 		while (m_Window.pollEvent(event1))
@@ -42,35 +50,49 @@ void Engine::start()
 				m_Window.close();
 			}
 		}
-		if (IntRect(505, 300, 160, 75).contains(Mouse::getPosition((m_Window)))) {
-			menu1.setTexture(menuTexture1_1); menuNum = 1; m_Window.setMouseCursor(hand);
-		}
-		else
+		Time dtt=clock2.getElapsedTime();
+		gohst1 = dtt.asMilliseconds()+18000*gg;
+		if (gohst1 <= 5700)
 		{
-			if (!IntRect(512.5, 400, 150, 58).contains(Mouse::getPosition((m_Window))))
-			{
-				m_Window.setMouseCursor(cursor1);
-				menu1.setTexture(menuTexture1);
-				menuNum = 0;
+			m_chells.setPosition((gohst1 / 10)-300, 300);
+			m_Window.draw(m_chells);
+		}
+		if (gohst1>=5700)
+		{
+			m_Window.draw(m_chells);
+		}
+		if (gohst1 >= 18000 || Keyboard::isKeyPressed(Keyboard::Enter)) {
+			gosht.stop();
+			gg = 1;
+			if (IntRect(505, 300, 160, 75).contains(Mouse::getPosition((m_Window)))) {
+				menu1.setTexture(menuTexture1_1); menuNum = 1; m_Window.setMouseCursor(hand);
 			}
-		}
-		if (IntRect(512.5, 400, 150, 58).contains(Mouse::getPosition((m_Window)))) {
-			menu2.setTexture(menuTexture2_1); menuNum = 2; m_Window.setMouseCursor(hand);
-		}
-		else
-		{
-			if (!IntRect(505, 300, 160, 75).contains(Mouse::getPosition((m_Window)))) {
-				m_Window.setMouseCursor(cursor1);
+			else
+			{
+				if (!IntRect(512.5, 400, 150, 58).contains(Mouse::getPosition((m_Window))))
+				{
+					m_Window.setMouseCursor(cursor1);
+					menu1.setTexture(menuTexture1);
+					menuNum = 0;
+				}
+			}
+			if (IntRect(512.5, 400, 150, 58).contains(Mouse::getPosition((m_Window)))) {
+				menu2.setTexture(menuTexture2_1); menuNum = 2; m_Window.setMouseCursor(hand);
+			}
+			else
+			{
+				if (!IntRect(505, 300, 160, 75).contains(Mouse::getPosition((m_Window)))) {
+					m_Window.setMouseCursor(cursor1);
 
-				menu2.setTexture(menuTexture2);
-				menuNum = 0;
+					menu2.setTexture(menuTexture2);
+					menuNum = 0;
+				}
 			}
-		}
-		if (Mouse::isButtonPressed(Mouse::Left))
-		{
-			switch (menuNum)
+			if (Mouse::isButtonPressed(Mouse::Left))
 			{
-			case 1:
+				switch (menuNum)
+				{
+				case 1:
 				{
 					Score = 0;
 					shet = 1;
@@ -89,6 +111,32 @@ void Engine::start()
 						g.push_back(false);
 					}
 					stolk = false;
+					bool gavn = true;
+					while (globallist.Begin->x != 550)
+					{
+						if (gavn)
+						{
+							if (globallist.Begin->next != NULL)
+							{
+								globallist.Begin = globallist.Begin->next;
+							}
+							else
+							{
+								gavn = false;
+							}
+						}
+						else
+						{
+							if (globallist.Begin->prev != NULL)
+							{
+								globallist.Begin = globallist.Begin->prev;
+							}
+							else
+							{
+								gavn = true;
+							}
+						}
+					}
 					int hp = 3, gavno = 0;
 					spawn[0] = 0;
 					spawn[1] = 0;
@@ -103,13 +151,15 @@ void Engine::start()
 					pause2();
 					life = true;
 					sf::Event event;
-					Clock clock,clock1;
+					Clock clock, clock1;
 					int dtAsSeconds = 0;
 					while (life)
 					{
 						Time dt2 = clock1.restart();
 						dtAsSeconds_1 = dt2.asSeconds();
 						Time dt = clock.getElapsedTime();
+						dtt = clock2.getElapsedTime();
+						gohst1 = dtt.asMilliseconds();
 						dtAsSeconds = dt.asSeconds() + gavno;
 						dtMilliSeconds = dt.asMilliseconds() + gavno2;
 						if (pause == true)
@@ -133,8 +183,8 @@ void Engine::start()
 									m_Coin.clear();
 									m_Bullet.clear();
 									immortal = 0;
-									m_MyCar.m_Position.x = 100;
-									m_MyCar.m_Position.y = 300;
+									m_MyCar.m_Position.x = 550;
+									m_MyCar.m_Position.y = 500;
 									menu2.setPosition(487.5, 390);
 								}
 							}
@@ -183,14 +233,19 @@ void Engine::start()
 					}
 				}
 				break;
-			case 2:
-				m_Window.close();
-				break;
+				case 2:
+					m_Window.close();
+					break;
+				}
 			}
+			m_Window.draw(m_BackgroundSprite);
+			m_Window.draw(menu1);
+			m_Window.draw(menu2);
+			m_MyCar.m_Sprite.setPosition(550,500);
+			m_Window.draw(m_MyCar.m_Sprite);
+			m_Window.draw(Logo_Sprite);
 		}
-		m_Window.draw(m_BackgroundSprite);
-		m_Window.draw(menu1);
-		m_Window.draw(menu2);
 		m_Window.display();
+		m_Window.clear();
 	}
 }

@@ -9,8 +9,8 @@ MyCar::MyCar()
 	m_Texture.loadFromFile("3.png");
 	m_Sprite.setTexture(m_Texture);
 	m_Sprite.setScale(0.2f, 0.2f);
-	m_Position.x = globallist.Begin->x;
-	m_Position.y = 300;
+	m_Position.x = 550;
+	m_Position.y = 500;
 }
 Sprite MyCar::getSprite()
 {
@@ -34,7 +34,6 @@ void MyCar::moveLeft(int & doroga)
 void MyCar::moveRight(int & doroga)
 {
 	m_RightPressed = true;
-	m_LeftPressed = true;
 	if (m_Position.x- m_Speed <= 1280 - 280 && !flag2)
 	{
 		if (globallist.Begin->next != NULL)

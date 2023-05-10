@@ -23,6 +23,10 @@ public:
 	Texture menuTexture2_1;
 	Sprite menu2;
 	Sprite menu1;
+	Sprite m_chells;
+	Texture m_chellt;
+	Sprite m_strelkas;
+	Texture m_strelkat;
 	Engine();
 	void start();
 	bool pause;
@@ -44,6 +48,9 @@ public:
 private:
 	Cursor cursor1;
 	Cursor hand;
+	Clock clock2;
+	int gg,fps;
+	Music gosht;
 	RenderWindow m_Window;
 	Sprite m_BackgroundSprite;
 	Texture m_BackgroundTexture;
@@ -56,6 +63,8 @@ private:
 	explose explose1;
 	Bullet bullet1;
 	float dtAsSeconds_1;
+	float fpss = 0, gohst1 = 0, fp = 0;
+	std::string fpsss;
 	SoundBuffer buffer;
 	Sound sound_pause;
 	std::vector <int> g;
@@ -71,7 +80,6 @@ private:
 	void game_over(float x,float y,std::vector <Enemy> & m_Enemy)
 	{
 		float time = 0;
-		m_Window.setFramerateLimit(60);
 		m_Texture5.loadFromFile("explose.png");
 		m_Sprite5.setTexture(m_Texture5);
 		m_Sprite5.setTextureRect(IntRect(0, 30, 270, 290));
@@ -161,13 +169,15 @@ private:
 				m_MyCar.m_Texture.loadFromFile("3.png");
 				m_MyCar.m_Sprite.setTexture(m_MyCar.m_Texture);
 				m_MyCar.m_Sprite.setScale(0.2f, 0.2f);
-				m_MyCar.m_Position.x = 100;
-				m_MyCar.m_Position.y = 300;
+				m_MyCar.m_Position.x = 550;
+				m_MyCar.m_Position.y = 500;
 				menu2.setPosition(487.5, 390);
 				m_Coin.clear();
 				m_Bullet.clear();
 				m_Window.clear();
 				m_Window.setFramerateLimit(0);
+				clock2.restart();
+				gg = 0;
 				life = false;
 			}
 		}

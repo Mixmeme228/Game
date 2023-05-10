@@ -15,7 +15,7 @@ public:
 	Sprite getSprite();
 	void move(float dt)
 	{
-		if (m_Position.y < 720)
+		if (m_Position.y < 900)
 		{
 			m_Position.y += 400 *dt;
 		}

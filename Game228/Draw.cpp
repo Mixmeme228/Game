@@ -42,6 +42,21 @@ void Engine::draw(int doroga,bool &stolk,bool ant,int kok2,int hp,float immortal
 	std::string s3;
 	s3 = "Score: " + std::to_string(Score);
 	Text text3(s3, font);
+	fps++;
+	std::string fpsss;
+	fpsss = "Fps:"+ std::to_string(int(fp));
+	if (gohst1 - fpss >= 1000)
+	{
+		fp = fps;
+		fps = 0;
+		fpss = gohst1;
+	}
+	Text text4(fpsss, font);
+	text4.setCharacterSize(75);
+	text4.setStyle(sf::Text::Bold);
+	text4.setFillColor(sf::Color::White);
+	text4.setPosition(10, 630);
+	m_Window.draw(text4);
 	text3.setCharacterSize(75);
 	text3.setStyle(sf::Text::Bold);
 	text3.setFillColor(sf::Color::White);

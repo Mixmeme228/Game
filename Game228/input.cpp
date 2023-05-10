@@ -38,7 +38,7 @@ void Engine::input(int &doroga,bool &ant)
 	}
 	if (Keyboard::isKeyPressed(sf::Keyboard::E))
 	{
-		m_Enemy.clear();
+		addEnemy();
 	}
 	if (Keyboard::isKeyPressed(sf::Keyboard::Space) && ant)
 	{

@@ -45,6 +45,7 @@ void Engine::input(int &doroga,bool &ant)
 		if (Score - 500 >= 0)
 		{
 			addBullet();
+			sound_shoot();
 			Score -= 500;
 			ant = false;
 		}

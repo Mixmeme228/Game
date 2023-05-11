@@ -54,6 +54,8 @@ Engine::Engine()
 	sound_click.setBuffer(buffer2);
 	buffer3.loadFromFile("123.ogg");
 	sound_explose.setBuffer(buffer3);
+	buffer5.loadFromFile("sound_shoot.ogg");
+	sound_shoot1.setBuffer(buffer5);
 	buffer4.loadFromFile("1214-_mp3cut.net_.ogg");
 	sound_coin.setBuffer(buffer4);
 	Menu_music3.openFromFile("aaaaa.ogg");
@@ -64,9 +66,9 @@ Engine::Engine()
 	Menu_music1.setLoop(true);
 	Menu_music2.openFromFile("Synthwave-Station-—-In-My-Dreams-_www.lightaudio.ru_.ogg");
 	Menu_music2.setLoop(true);
-	Menu_music.setVolume(25);
-	Menu_music1.setVolume(25);
-	Menu_music2.setVolume(25);
+	Menu_music.setVolume(20);
+	Menu_music1.setVolume(20);
+	Menu_music2.setVolume(20);
 	menu_music = true;
 }
 void Engine::start()
@@ -115,12 +117,12 @@ void Engine::start()
 		{
 			m_Window.draw(m_GohstCars);
 		}
-		if (gohst1 >= 12000&& gohst1<=14000&& zast)
+		if (gohst1 >= 12000&& gohst1<=15000&& zast)
 		{
 			m_GohstCars.setPosition(400, 200-(gohst1-12000));
 			m_Window.draw(m_GohstCars);
 		}
-		if (gohst1 >= 14000&& zast)
+		if (gohst1 >= 15000&& zast)
 		{
 			m_GohstCars.setScale(0.2f, 0.2f);
 			if (720 - (gohst1 - 16000) >= 500) {
@@ -129,7 +131,7 @@ void Engine::start()
 			m_Window.draw(m_BackgroundSprite);
 			m_Window.draw(m_GohstCars);
 		}
-		if (gohst1 >= 17000 || Keyboard::isKeyPressed(Keyboard::Enter)||!zast) {
+		if (gohst1 >= 18000 || Keyboard::isKeyPressed(Keyboard::Enter)||!zast) {
 			gosht.stop();
 			if (menu_music)
 			{

@@ -82,6 +82,8 @@ private:
 	SoundBuffer buffer3;
 	Sound sound_explose;
 	SoundBuffer buffer4;
+	Sound sound_shoot1;
+	SoundBuffer buffer5;
 	Sound sound_coin;
 	std::vector <int> g;
 	float spawn[4];
@@ -97,6 +99,7 @@ private:
 	{
 		
 		Menu_music3.play();
+		Menu_music3.setVolume(20);
 		Menu_music.stop();
 		Menu_music1.stop();
 		Menu_music2.stop();
@@ -124,12 +127,12 @@ private:
 		text2.setStyle(sf::Text::Bold);
 		text2.setFillColor(sf::Color::Black);
 		text2.setPosition(550, 350);
-		std::string s3 = "Yes, he didn't die in the end.";
+		std::string s3 = "Is he died at the end of the Drive?";
 		Text text3(s3, font);
 		text3.setCharacterSize(60);
 		text3.setStyle(sf::Text::Bold);
 		text3.setFillColor(sf::Color::Black);
-		text3.setPosition(375, 450);
+		text3.setPosition(335, 450);
 		while (life)
 		{
 			Time dt = clock.getElapsedTime();
@@ -271,6 +274,10 @@ private:
 	}
 	bool stolk;
 	Music music;
+	void sound_shoot()
+	{
+		sound_shoot1.play();
+	}
 	void sound1()
 	{
 		sound_explose.play(); 

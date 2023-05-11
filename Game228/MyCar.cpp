@@ -19,6 +19,7 @@ Sprite MyCar::getSprite()
 bool flag = false,flag2=false;
 void MyCar::moveLeft(int & doroga)
 {
+	m_RightPressed = true;
 	m_LeftPressed = true;
 	if ( m_Position.x >= 0&& !flag)
 	{
@@ -34,6 +35,7 @@ void MyCar::moveLeft(int & doroga)
 void MyCar::moveRight(int & doroga)
 {
 	m_RightPressed = true;
+	m_LeftPressed = true;
 	if (m_Position.x- m_Speed <= 1280 - 280 && !flag2)
 	{
 		if (globallist.Begin->next != NULL)

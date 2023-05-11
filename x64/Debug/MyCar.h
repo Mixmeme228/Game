@@ -4,14 +4,15 @@ using namespace sf;
 class MyCar
 {
 private:
+	float m_Speed;
+	float m_Speed1;
+public:
 	bool m_LeftPressed;
 	bool m_RightPressed;
 	bool m_UpPressed;
 	bool m_DownPressed;
-	float m_Speed;
-	float m_Speed1;
-public:
 	Sprite m_Sprite;
+	float time;
 	Texture m_Texture;
 	MyCar();
 	Vector2f m_Position;

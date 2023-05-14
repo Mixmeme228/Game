@@ -36,10 +36,6 @@ void Engine::input(int &doroga,bool &ant)
 	{
 		m_MyCar.stopDown();
 	}
-	if (Keyboard::isKeyPressed(sf::Keyboard::E))
-	{
-		m_Enemy.clear();
-	}
 	if (Keyboard::isKeyPressed(sf::Keyboard::Space) && ant)
 	{
 		if (Score - 500 >= 0)

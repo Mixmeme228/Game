@@ -1,15 +1,16 @@
 #include"engine.h"
 #include"list.h"
+#include<vector>
 #include"MyCar.h"
 #include<SFML/Audio.hpp>
+#include<SFML/Window.hpp>
 Engine::Engine()
 {
 	Vector2f resolution;
 	resolution.x = 1280;
 	resolution.y = 720;
 	m_Window.create(VideoMode(resolution.x, resolution.y),
-		"Drive",
-		Style::Default);
+		"Drive", sf::Style::Close);
 	auto image = sf::Image{};
 	image.loadFromFile("12345.png");
 	m_Window.setIcon(image.getSize().x, image.getSize().y, image.getPixelsPtr());

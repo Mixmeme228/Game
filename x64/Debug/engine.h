@@ -55,6 +55,7 @@ private:
 	Music gosht;
 	Music Menu_music;
 	Music Menu_music1;
+	Music Menu_music3;
 	Music Menu_music2;
 	bool menu_music;
 	RenderWindow m_Window;
@@ -94,6 +95,8 @@ private:
 	}
 	void game_over(float x,float y,std::vector <Enemy> & m_Enemy)
 	{
+		
+		Menu_music3.play();
 		Menu_music.stop();
 		Menu_music1.stop();
 		Menu_music2.stop();
@@ -121,6 +124,12 @@ private:
 		text2.setStyle(sf::Text::Bold);
 		text2.setFillColor(sf::Color::Black);
 		text2.setPosition(550, 350);
+		std::string s3 = "Yes, he didn't die in the end.";
+		Text text3(s3, font);
+		text3.setCharacterSize(60);
+		text3.setStyle(sf::Text::Bold);
+		text3.setFillColor(sf::Color::Black);
+		text3.setPosition(375, 450);
 		while (life)
 		{
 			Time dt = clock.getElapsedTime();
@@ -172,6 +181,7 @@ private:
 				m_Window.draw(m_explose[i].getSprite());
 			}
 			if (!(j >= 650 && i <= 475)) {
+				m_Window.draw(text3);
 				if ( (dtMilliSeconds <= 1000))
 				{
 					m_Window.draw(text2);
@@ -200,6 +210,7 @@ private:
 				clock2.restart();
 				gohst1 = 0;
 				gg = 0;
+				Menu_music3.stop();
 				life = false;
 			}
 		}

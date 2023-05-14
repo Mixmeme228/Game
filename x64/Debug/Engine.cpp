@@ -10,6 +10,9 @@ Engine::Engine()
 	m_Window.create(VideoMode(resolution.x, resolution.y),
 		"Drive",
 		Style::Default);
+	auto image = sf::Image{};
+	image.loadFromFile("12345.png");
+	m_Window.setIcon(image.getSize().x, image.getSize().y, image.getPixelsPtr());
 	m_BackgroundTexture.loadFromFile("1.png");
 	textur.loadFromFile("Enemy2.png");
 	m_BackgroundSprite.setTexture(m_BackgroundTexture);
@@ -53,6 +56,8 @@ Engine::Engine()
 	sound_explose.setBuffer(buffer3);
 	buffer4.loadFromFile("1214-_mp3cut.net_.ogg");
 	sound_coin.setBuffer(buffer4);
+	Menu_music3.openFromFile("aaaaa.ogg");
+	Menu_music.setLoop(true);
 	Menu_music.openFromFile("Synthwave-Goose-—-Can_t-Forget-_www.lightaudio.ru_.ogg");
 	Menu_music.setLoop(true);
 	Menu_music1.openFromFile("Synthwave-Goose-—-Tyumen-1985-_www.lightaudio.ru_.ogg");

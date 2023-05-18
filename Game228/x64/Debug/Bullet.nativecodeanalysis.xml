@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\qdcjj\Desktop\Game\Game228\</FILEPATH>
+      <FILENAME>engine.h</FILENAME>
+      <LINE>250</LINE>
+      <COLUMN>17</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Арифметическое переполнение: использование оператора "-" на байтовом значении 4 и приведение результата к байтовому значению 8. Приведите значение к более широкому типу перед вызовом оператора "-", чтобы избежать переполнения (io.2).</DESCRIPTION>
+    <FUNCTION>Engine::rasp</FUNCTION>
+    <DECORATED>?rasp@Engine@@AEAAXXZ</DECORATED>
+    <FUNCLINE>236</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\qdcjj\Desktop\Game\Game228\</FILEPATH>
+      <FILENAME>engine.h</FILENAME>
+      <LINE>261</LINE>
+      <COLUMN>17</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Арифметическое переполнение: использование оператора "+" на байтовом значении 4 и приведение результата к байтовому значению 8. Приведите значение к более широкому типу перед вызовом оператора "+", чтобы избежать переполнения (io.2).</DESCRIPTION>
+    <FUNCTION>Engine::rasp</FUNCTION>
+    <DECORATED>?rasp@Engine@@AEAAXXZ</DECORATED>
+    <FUNCLINE>236</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\qdcjj\Desktop\Game\Game228\</FILEPATH>
+      <FILENAME>Bullet.cpp</FILENAME>
+      <LINE>4</LINE>
+      <COLUMN>8</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Переменная "Bullet::m_Speed" не инициализирована. Всегда инициализируйте переменную-член (type.6).</DESCRIPTION>
+    <FUNCTION>Bullet::{ctor}</FUNCTION>
+    <DECORATED>??0Bullet@@QEAA@XZ</DECORATED>
+    <FUNCLINE>4</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Bullet::m_Speed</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\qdcjj\Desktop\Game\Game228\</FILEPATH>
+      <FILENAME>Bullet.cpp</FILENAME>
+      <LINE>4</LINE>
+      <COLUMN>8</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Переменная "Bullet::time" не инициализирована. Всегда инициализируйте переменную-член (type.6).</DESCRIPTION>
+    <FUNCTION>Bullet::{ctor}</FUNCTION>
+    <DECORATED>??0Bullet@@QEAA@XZ</DECORATED>
+    <FUNCLINE>4</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Bullet::time</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

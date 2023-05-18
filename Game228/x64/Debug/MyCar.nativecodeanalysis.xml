@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\qdcjj\Desktop\Game\Game228\</FILEPATH>
+      <FILENAME>engine.h</FILENAME>
+      <LINE>250</LINE>
+      <COLUMN>17</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Арифметическое переполнение: использование оператора "-" на байтовом значении 4 и приведение результата к байтовому значению 8. Приведите значение к более широкому типу перед вызовом оператора "-", чтобы избежать переполнения (io.2).</DESCRIPTION>
+    <FUNCTION>Engine::rasp</FUNCTION>
+    <DECORATED>?rasp@Engine@@AEAAXXZ</DECORATED>
+    <FUNCLINE>236</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\qdcjj\Desktop\Game\Game228\</FILEPATH>
+      <FILENAME>engine.h</FILENAME>
+      <LINE>261</LINE>
+      <COLUMN>17</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Арифметическое переполнение: использование оператора "+" на байтовом значении 4 и приведение результата к байтовому значению 8. Приведите значение к более широкому типу перед вызовом оператора "+", чтобы избежать переполнения (io.2).</DESCRIPTION>
+    <FUNCTION>Engine::rasp</FUNCTION>
+    <DECORATED>?rasp@Engine@@AEAAXXZ</DECORATED>
+    <FUNCLINE>236</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\qdcjj\Desktop\Game\Game228\</FILEPATH>
+      <FILENAME>MyCar.cpp</FILENAME>
+      <LINE>5</LINE>
+      <COLUMN>7</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Переменная "MyCar::m_LeftPressed" не инициализирована. Всегда инициализируйте переменную-член (type.6).</DESCRIPTION>
+    <FUNCTION>MyCar::{ctor}</FUNCTION>
+    <DECORATED>??0MyCar@@QEAA@XZ</DECORATED>
+    <FUNCLINE>5</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>MyCar::m_LeftPressed</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\qdcjj\Desktop\Game\Game228\</FILEPATH>
+      <FILENAME>MyCar.cpp</FILENAME>
+      <LINE>5</LINE>
+      <COLUMN>7</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Переменная "MyCar::m_RightPressed" не инициализирована. Всегда инициализируйте переменную-член (type.6).</DESCRIPTION>
+    <FUNCTION>MyCar::{ctor}</FUNCTION>
+    <DECORATED>??0MyCar@@QEAA@XZ</DECORATED>
+    <FUNCLINE>5</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>MyCar::m_RightPressed</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\qdcjj\Desktop\Game\Game228\</FILEPATH>
+      <FILENAME>MyCar.cpp</FILENAME>
+      <LINE>5</LINE>
+      <COLUMN>7</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Переменная "MyCar::m_UpPressed" не инициализирована. Всегда инициализируйте переменную-член (type.6).</DESCRIPTION>
+    <FUNCTION>MyCar::{ctor}</FUNCTION>
+    <DECORATED>??0MyCar@@QEAA@XZ</DECORATED>
+    <FUNCLINE>5</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>MyCar::m_UpPressed</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\qdcjj\Desktop\Game\Game228\</FILEPATH>
+      <FILENAME>MyCar.cpp</FILENAME>
+      <LINE>5</LINE>
+      <COLUMN>7</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Переменная "MyCar::m_DownPressed" не инициализирована. Всегда инициализируйте переменную-член (type.6).</DESCRIPTION>
+    <FUNCTION>MyCar::{ctor}</FUNCTION>
+    <DECORATED>??0MyCar@@QEAA@XZ</DECORATED>
+    <FUNCLINE>5</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>MyCar::m_DownPressed</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\qdcjj\Desktop\Game\Game228\</FILEPATH>
+      <FILENAME>MyCar.cpp</FILENAME>
+      <LINE>5</LINE>
+      <COLUMN>7</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Переменная "MyCar::time" не инициализирована. Всегда инициализируйте переменную-член (type.6).</DESCRIPTION>
+    <FUNCTION>MyCar::{ctor}</FUNCTION>
+    <DECORATED>??0MyCar@@QEAA@XZ</DECORATED>
+    <FUNCLINE>5</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>MyCar::time</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>
